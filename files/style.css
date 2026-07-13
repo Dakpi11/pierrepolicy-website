@@ -1,0 +1,341 @@
+/* ==========================================================================
+   Pierre Policy & Strategy Consulting — Design System
+   Concept: the site reads like a briefing memorandum — reference strips,
+   distribution-list navigation, numbered clauses instead of generic cards.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --ink: #16232F;
+  --ink-light: #1F3140;
+  --parchment: #EDE6D3;
+  --parchment-dim: #E2D9C2;
+  --brass: #B08D57;
+  --brass-bright: #C7A46E;
+  --seal: #7A2E2E;
+  --paper-text: #F3EFE4;
+  --slate: #4A5568;
+  --rule: rgba(176, 141, 87, 0.35);
+
+  --display: 'Fraunces', serif;
+  --body: 'IBM Plex Sans', sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper-text);
+  font-family: var(--body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--brass-bright); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--brass-bright);
+  outline-offset: 3px;
+}
+
+img { max-width: 100%; display: block; }
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Memo header strip (signature element) ---------- */
+
+.memo-strip {
+  border-bottom: 1px solid var(--rule);
+  padding: 14px 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--brass-bright);
+}
+
+.memo-strip .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.memo-strip .ref { opacity: 0.85; }
+
+.memo-strip nav a {
+  color: var(--paper-text);
+  margin-left: 20px;
+  text-decoration: none;
+  opacity: 0.85;
+}
+.memo-strip nav a:hover,
+.memo-strip nav a[aria-current="page"] {
+  color: var(--brass-bright);
+  opacity: 1;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 84px 0 56px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero .eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brass-bright);
+  margin: 0 0 18px;
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  margin: 0 0 22px;
+  max-width: 14ch;
+}
+
+.hero p.lede {
+  font-size: 1.15rem;
+  color: var(--paper-text);
+  opacity: 0.88;
+  max-width: 56ch;
+  margin: 0 0 32px;
+}
+
+.hero .actions a {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  padding: 12px 20px;
+  border: 1px solid var(--brass);
+  border-radius: 2px;
+  margin-right: 12px;
+  color: var(--paper-text);
+}
+
+.hero .actions a.primary {
+  background: var(--brass);
+  color: var(--ink);
+  border-color: var(--brass);
+}
+.hero .actions a.primary:hover { background: var(--brass-bright); text-decoration: none; }
+.hero .actions a:not(.primary):hover { border-color: var(--brass-bright); text-decoration: none; }
+
+/* ---------- Numbered clause sections ---------- */
+
+.clauses {
+  padding: 56px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.clauses h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.7rem;
+  margin: 0 0 36px;
+}
+
+.clause {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 20px;
+  padding: 22px 0;
+  border-top: 1px solid var(--rule);
+}
+.clause:first-of-type { border-top: none; }
+
+.clause .num {
+  font-family: var(--mono);
+  color: var(--brass-bright);
+  font-size: 13px;
+  padding-top: 2px;
+}
+
+.clause h3 {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 1.08rem;
+  margin: 0 0 6px;
+}
+
+.clause p {
+  margin: 0;
+  color: var(--paper-text);
+  opacity: 0.82;
+  font-size: 0.98rem;
+}
+
+/* ---------- Papers list (on parchment, like a document inset) ---------- */
+
+.dossier {
+  background: var(--parchment);
+  color: var(--ink);
+  padding: 56px 0;
+}
+
+.dossier h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.7rem;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.dossier .sub {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--slate);
+  margin: 0 0 36px;
+}
+
+.paper-entry {
+  border-top: 1px solid rgba(22,35,47,0.15);
+  padding: 24px 0;
+  display: grid;
+  grid-template-columns: 110px 1fr auto;
+  gap: 20px;
+  align-items: start;
+}
+.paper-entry:last-child { border-bottom: 1px solid rgba(22,35,47,0.15); }
+
+.paper-entry .date {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--slate);
+  padding-top: 3px;
+}
+
+.paper-entry h3 {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.paper-entry p {
+  margin: 0;
+  color: var(--slate);
+  font-size: 0.95rem;
+}
+
+.paper-entry .dl {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--seal);
+  border: 1px solid var(--seal);
+  padding: 6px 12px;
+  border-radius: 2px;
+  white-space: nowrap;
+  align-self: start;
+}
+.paper-entry .dl:hover {
+  background: var(--seal);
+  color: var(--parchment);
+  text-decoration: none;
+}
+
+.placeholder-note {
+  margin-top: 32px;
+  font-size: 0.88rem;
+  color: var(--slate);
+  font-style: italic;
+}
+
+/* ---------- About / bio blocks ---------- */
+
+.bio {
+  padding: 56px 0;
+}
+
+.bio h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.7rem;
+  margin: 0 0 24px;
+}
+
+.bio p {
+  max-width: 62ch;
+  opacity: 0.9;
+  margin: 0 0 18px;
+}
+
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.fact {
+  border-top: 1px solid var(--rule);
+  padding-top: 14px;
+}
+
+.fact .label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brass-bright);
+  margin: 0 0 6px;
+}
+
+.fact .value {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  padding: 32px 0 48px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--slate);
+}
+
+footer .wrap {
+  border-top: 1px solid var(--rule);
+  padding-top: 24px;
+  color: var(--paper-text);
+  opacity: 0.6;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .memo-strip nav a { margin-left: 12px; }
+  .clause { grid-template-columns: 40px 1fr; }
+  .paper-entry {
+    grid-template-columns: 1fr;
+  }
+  .paper-entry .dl { justify-self: start; }
+  .fact-grid { grid-template-columns: 1fr; }
+  .hero { padding: 56px 0 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
