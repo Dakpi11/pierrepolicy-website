@@ -56,6 +56,540 @@
     </div>
   </section>
 
+  <section class="ppsc-cdb" id="ppsc-conflicts-db">
+
+    <style>
+      #ppsc-conflicts-db {
+        --cdb-ink: var(--ink, #16232F);
+        --cdb-parchment: var(--parchment, #EDE6D3);
+        --cdb-parchment-dim: var(--parchment-dim, #E2D9C2);
+        --cdb-brass: var(--brass, #B08D57);
+        --cdb-brass-bright: var(--brass-bright, #C7A46E);
+        --cdb-seal: var(--seal, #7A2E2E);
+        --cdb-slate: var(--slate, #4A5568);
+        --cdb-display: var(--display, 'Fraunces', serif);
+        --cdb-body: var(--body, 'IBM Plex Sans', sans-serif);
+        --cdb-mono: var(--mono, 'IBM Plex Mono', monospace);
+
+        display: block;
+        background: var(--cdb-parchment);
+        color: var(--cdb-ink);
+        font-family: var(--cdb-body);
+        line-height: 1.6;
+        padding: 56px 0;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      #ppsc-conflicts-db * { box-sizing: border-box; }
+
+      #ppsc-conflicts-db .cdb-wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      #ppsc-conflicts-db .cdb-eyebrow {
+        font-family: var(--cdb-mono);
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--cdb-seal);
+        margin: 0 0 14px;
+      }
+
+      #ppsc-conflicts-db h2 {
+        font-family: var(--cdb-display);
+        font-weight: 500;
+        font-size: 1.7rem;
+        margin: 0 0 10px;
+        color: var(--cdb-ink);
+      }
+
+      #ppsc-conflicts-db .cdb-sub {
+        font-size: 0.95rem;
+        color: var(--cdb-slate);
+        max-width: 68ch;
+        margin: 0 0 8px;
+      }
+
+      #ppsc-conflicts-db .cdb-note {
+        font-family: var(--cdb-mono);
+        font-size: 11.5px;
+        color: var(--cdb-slate);
+        font-style: italic;
+        margin: 0 0 32px;
+      }
+
+      /* ---------- Controls ---------- */
+
+      #ppsc-conflicts-db .cdb-controls {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 16px;
+        border-top: 1px solid rgba(22, 35, 47, 0.15);
+        border-bottom: 1px solid rgba(22, 35, 47, 0.15);
+        padding: 20px 0;
+        margin-bottom: 28px;
+      }
+
+      #ppsc-conflicts-db .cdb-field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      #ppsc-conflicts-db .cdb-field label {
+        font-family: var(--cdb-mono);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--cdb-slate);
+      }
+
+      #ppsc-conflicts-db .cdb-field input[type="search"],
+      #ppsc-conflicts-db .cdb-field select {
+        font-family: var(--cdb-body);
+        font-size: 0.92rem;
+        color: var(--cdb-ink);
+        background: #fff;
+        border: 1px solid var(--cdb-brass);
+        border-radius: 2px;
+        padding: 8px 10px;
+        min-width: 190px;
+      }
+
+      #ppsc-conflicts-db .cdb-field input[type="search"]:focus,
+      #ppsc-conflicts-db .cdb-field select:focus {
+        outline: 2px solid var(--cdb-brass-bright);
+        outline-offset: 1px;
+      }
+
+      #ppsc-conflicts-db .cdb-reset {
+        font-family: var(--cdb-mono);
+        font-size: 12px;
+        letter-spacing: 0.03em;
+        color: var(--cdb-ink);
+        background: transparent;
+        border: 1px solid var(--cdb-brass);
+        border-radius: 2px;
+        padding: 9px 14px;
+        cursor: pointer;
+        height: 37px;
+      }
+      #ppsc-conflicts-db .cdb-reset:hover { border-color: var(--cdb-seal); color: var(--cdb-seal); }
+
+      #ppsc-conflicts-db .cdb-count {
+        font-family: var(--cdb-mono);
+        font-size: 12px;
+        color: var(--cdb-slate);
+        margin-left: auto;
+        align-self: center;
+      }
+
+      /* ---------- Grid & cards ---------- */
+
+      #ppsc-conflicts-db .cdb-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+      }
+
+      #ppsc-conflicts-db .cdb-card {
+        position: relative;
+        background: var(--cdb-parchment-dim);
+        border: 1px solid rgba(22, 35, 47, 0.18);
+        border-radius: 2px;
+        padding: 20px 20px 18px;
+      }
+
+      #ppsc-conflicts-db .cdb-card[hidden] { display: none; }
+
+      #ppsc-conflicts-db .cdb-card .cdb-stamp {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        font-family: var(--cdb-mono);
+        font-size: 9.5px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--cdb-slate);
+        opacity: 0.55;
+      }
+
+      #ppsc-conflicts-db .cdb-card-top {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        margin-bottom: 6px;
+        padding-right: 70px;
+      }
+
+      #ppsc-conflicts-db .cdb-num {
+        font-family: var(--cdb-mono);
+        font-size: 12px;
+        color: var(--cdb-brass-bright);
+        filter: brightness(0.7);
+      }
+
+      #ppsc-conflicts-db .cdb-card h3 {
+        font-family: var(--cdb-body);
+        font-weight: 600;
+        font-size: 1.05rem;
+        margin: 0;
+        color: var(--cdb-ink);
+      }
+
+      #ppsc-conflicts-db .cdb-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0 0 14px;
+      }
+
+      #ppsc-conflicts-db .cdb-tag {
+        font-family: var(--cdb-mono);
+        font-size: 10.5px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 3px 8px;
+        border-radius: 2px;
+        border: 1px solid rgba(22, 35, 47, 0.25);
+        color: var(--cdb-slate);
+      }
+
+      #ppsc-conflicts-db .cdb-tag.cdb-intensity {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        border-color: transparent;
+        color: var(--cdb-ink);
+      }
+
+      #ppsc-conflicts-db .cdb-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      #ppsc-conflicts-db .cdb-dot.high { background: var(--cdb-seal); }
+      #ppsc-conflicts-db .cdb-dot.elevated { background: var(--cdb-brass); }
+      #ppsc-conflicts-db .cdb-dot.simmering { background: var(--cdb-slate); }
+
+      #ppsc-conflicts-db .cdb-field-row {
+        margin-bottom: 10px;
+      }
+
+      #ppsc-conflicts-db .cdb-field-row .cdb-label {
+        font-family: var(--cdb-mono);
+        font-size: 10.5px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--cdb-seal);
+        margin: 0 0 3px;
+      }
+
+      #ppsc-conflicts-db .cdb-field-row .cdb-value {
+        margin: 0;
+        font-size: 0.9rem;
+        color: var(--cdb-ink);
+      }
+
+      #ppsc-conflicts-db .cdb-summary {
+        margin: 12px 0 0;
+        font-size: 0.88rem;
+        color: var(--cdb-slate);
+        border-top: 1px solid rgba(22, 35, 47, 0.15);
+        padding-top: 12px;
+      }
+
+      #ppsc-conflicts-db .cdb-meta {
+        margin: 12px 0 0;
+        font-family: var(--cdb-mono);
+        font-size: 10.5px;
+        color: var(--cdb-slate);
+        opacity: 0.8;
+      }
+
+      #ppsc-conflicts-db .cdb-empty {
+        font-family: var(--cdb-mono);
+        font-size: 0.9rem;
+        color: var(--cdb-slate);
+        padding: 32px 0;
+        text-align: center;
+        border: 1px dashed rgba(22, 35, 47, 0.25);
+      }
+      #ppsc-conflicts-db .cdb-empty[hidden] { display: none; }
+      #ppsc-conflicts-db .cdb-empty button {
+        font-family: var(--cdb-mono);
+        font-size: 0.85rem;
+        color: var(--cdb-seal);
+        background: none;
+        border: none;
+        text-decoration: underline;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      @media (max-width: 640px) {
+        #ppsc-conflicts-db .cdb-controls { flex-direction: column; align-items: stretch; }
+        #ppsc-conflicts-db .cdb-field input[type="search"],
+        #ppsc-conflicts-db .cdb-field select { min-width: 0; width: 100%; }
+        #ppsc-conflicts-db .cdb-count { margin-left: 0; }
+      }
+    </style>
+
+    <div class="cdb-wrap">
+
+      <p class="cdb-eyebrow">Open-Source Monitor &middot; Active Conflicts</p>
+      <h2>Active conflicts database</h2>
+      <p class="cdb-sub">A working tracker of currently active conflicts and militarized crises, with the U.S. interest at stake and the current level of U.S. involvement in each.</p>
+      <p class="cdb-note">Assessments reflect general open-source reporting as of mid-2026 and are illustrative rather than definitive; verify current developments against primary sources before citing.</p>
+
+      <form class="cdb-controls" data-cdb-form>
+        <div class="cdb-field">
+          <label for="cdb-search">Search</label>
+          <input type="search" id="cdb-search" data-cdb-search placeholder="Conflict, region, keyword&hellip;">
+        </div>
+        <div class="cdb-field">
+          <label for="cdb-region">Region</label>
+          <select id="cdb-region" data-cdb-region>
+            <option value="all">All regions</option>
+          </select>
+        </div>
+        <div class="cdb-field">
+          <label for="cdb-involvement">U.S. involvement level</label>
+          <select id="cdb-involvement" data-cdb-involvement>
+            <option value="all">All levels</option>
+          </select>
+        </div>
+        <button type="button" class="cdb-reset" data-cdb-reset>Reset filters</button>
+        <span class="cdb-count" data-cdb-count aria-live="polite"></span>
+      </form>
+
+      <div class="cdb-grid" data-cdb-grid></div>
+
+      <p class="cdb-empty" data-cdb-empty hidden>
+        No conflicts match the current filters. <button type="button" data-cdb-reset>Reset filters</button>
+      </p>
+
+    </div>
+  </section>
+
+  <script>
+  (function () {
+    var root = document.getElementById('ppsc-conflicts-db');
+    if (!root) return;
+
+    var INVOLVEMENT_LABELS = {
+      direct: 'Direct military presence',
+      assistance: 'Security & materiel assistance',
+      diplomatic: 'Diplomatic & economic engagement',
+      monitoring: 'Monitoring & limited engagement'
+    };
+
+    var INTENSITY_LABELS = {
+      high: 'High intensity',
+      elevated: 'Elevated',
+      simmering: 'Simmering'
+    };
+
+    var CONFLICTS = [
+      {
+        name: 'Russia–Ukraine War',
+        region: 'Europe',
+        since: '2022',
+        intensity: 'high',
+        involvement: 'assistance',
+        interest: 'NATO cohesion, deterrence of forcible border revision in Europe, and the credibility of U.S. security guarantees.',
+        summary: 'A full-scale war following Russia’s 2022 invasion continues along a largely static front in the east and south, with sustained missile and drone exchanges. Washington has supplied arms, training, and intelligence without deploying U.S. combat forces.'
+      },
+      {
+        name: 'Israel–Hamas War & Regional Spillover',
+        region: 'Middle East',
+        since: '2023',
+        intensity: 'high',
+        involvement: 'direct',
+        interest: 'Security of a close regional ally, deterrence of Iran and its proxy network, and stability affecting global energy markets.',
+        summary: 'Fighting in Gaza continues alongside intermittent exchanges with Hezbollah in Lebanon and direct Iran–Israel strikes. U.S. forces maintain a defensive regional posture, including naval deployments and air-defense support for Israel.'
+      },
+      {
+        name: 'Houthi Campaign & Red Sea Shipping Crisis',
+        region: 'Middle East',
+        since: '2023',
+        intensity: 'elevated',
+        involvement: 'direct',
+        interest: 'Freedom of navigation through a chokepoint carrying a major share of global shipping, and deterrence of Iran-aligned militias.',
+        summary: 'Houthi forces in Yemen continue missile and drone attacks on commercial and naval vessels transiting the Red Sea and Bab-el-Mandeb Strait. U.S. and allied naval forces conduct intercept operations and periodic strikes on launch sites.'
+      },
+      {
+        name: 'Sudan Civil War',
+        region: 'Africa',
+        since: '2023',
+        intensity: 'high',
+        involvement: 'diplomatic',
+        interest: 'Averting one of the world’s largest humanitarian crises, Red Sea and Horn of Africa stability, and limiting external proxy competition.',
+        summary: 'Fighting between the Sudanese Armed Forces and the Rapid Support Forces has produced mass displacement and famine conditions in parts of the country. U.S. engagement centers on ceasefire diplomacy, sanctions, and humanitarian funding rather than a military role.'
+      },
+      {
+        name: 'Myanmar Civil War',
+        region: 'Asia-Pacific',
+        since: '2021',
+        intensity: 'elevated',
+        involvement: 'diplomatic',
+        interest: 'Democratic governance and human rights, and limiting the junta’s reliance on Chinese and Russian patronage.',
+        summary: 'Resistance forces and ethnic armed organizations have taken significant territory from the military government since the 2021 coup. U.S. involvement is limited to sanctions, humanitarian assistance, and support for opposition-aligned civil society.'
+      },
+      {
+        name: 'Eastern DRC Conflict (M23)',
+        region: 'Africa',
+        since: '2021',
+        intensity: 'high',
+        involvement: 'diplomatic',
+        interest: 'Stability of critical-mineral supply chains (cobalt, coltan, tantalum) and containing a conflict with cross-border escalation risk.',
+        summary: 'The M23 rebel group, widely assessed to operate with Rwandan backing, has seized significant territory in eastern Congo, including provincial capitals. U.S. engagement has centered on brokered talks and a minerals-for-security framework rather than direct military involvement.'
+      },
+      {
+        name: 'Sahel Jihadist Insurgencies',
+        region: 'Africa',
+        since: '2012',
+        intensity: 'elevated',
+        involvement: 'monitoring',
+        interest: 'Preventing transnational terrorist safe havens and countering the expansion of Russian influence in the region.',
+        summary: 'Insurgencies linked to al-Qaeda and the Islamic State continue across Mali, Burkina Faso, and Niger amid a wave of military coups. U.S. presence has sharply contracted following base closures and the host governments’ realignment toward Russia.'
+      },
+      {
+        name: 'Haiti Gang Crisis',
+        region: 'Americas',
+        since: '2021',
+        intensity: 'elevated',
+        involvement: 'assistance',
+        interest: 'Regional stability and containment of a migration and organized-crime crisis with direct effects on U.S. borders.',
+        summary: 'Armed gangs control most of the capital and have displaced hundreds of thousands of residents amid state collapse. The U.S. funds and provides logistics to a multinational security mission rather than deploying its own ground forces.'
+      },
+      {
+        name: 'Taiwan Strait Tensions',
+        region: 'Asia-Pacific',
+        since: 'ongoing',
+        intensity: 'simmering',
+        involvement: 'assistance',
+        interest: 'Treaty and quasi-treaty commitments in the Indo-Pacific, deterrence of a major-power war, and continuity of global semiconductor production.',
+        summary: 'China continues near-daily military incursions into Taiwan’s air defense identification zone alongside large-scale exercises rehearsing a blockade or invasion. U.S. policy combines arms sales and military advising with deliberate strategic ambiguity on direct defense.'
+      },
+      {
+        name: 'Venezuela Crisis',
+        region: 'Americas',
+        since: '2013',
+        intensity: 'simmering',
+        involvement: 'direct',
+        interest: 'Counter-narcotics enforcement, migration management, and containment of an authoritarian government aligned with adversarial powers.',
+        summary: 'Political repression, economic collapse, and a disputed claim over the Essequibo region sit alongside an expanded U.S. military posture in the Caribbean targeting narco-trafficking networks. U.S. engagement combines sanctions pressure with direct interdiction operations.'
+      }
+    ];
+
+    var grid = root.querySelector('[data-cdb-grid]');
+    var searchInput = root.querySelector('[data-cdb-search]');
+    var regionSelect = root.querySelector('[data-cdb-region]');
+    var involvementSelect = root.querySelector('[data-cdb-involvement]');
+    var resetButtons = root.querySelectorAll('[data-cdb-reset]');
+    var countEl = root.querySelector('[data-cdb-count]');
+    var emptyEl = root.querySelector('[data-cdb-empty]');
+    var form = root.querySelector('[data-cdb-form]');
+
+    function populateSelect(select, values) {
+      values.forEach(function (v) {
+        var opt = document.createElement('option');
+        opt.value = v;
+        opt.textContent = v;
+        select.appendChild(opt);
+      });
+    }
+
+    function populateInvolvementSelect() {
+      Object.keys(INVOLVEMENT_LABELS).forEach(function (key) {
+        var opt = document.createElement('option');
+        opt.value = key;
+        opt.textContent = INVOLVEMENT_LABELS[key];
+        involvementSelect.appendChild(opt);
+      });
+    }
+
+    var regions = [];
+    CONFLICTS.forEach(function (c) {
+      if (regions.indexOf(c.region) === -1) regions.push(c.region);
+    });
+    populateSelect(regionSelect, regions);
+    populateInvolvementSelect();
+
+    function renderCards() {
+      var html = CONFLICTS.map(function (c, i) {
+        var num = String(i + 1).padStart(2, '0');
+        var searchBlob = (c.name + ' ' + c.region + ' ' + c.interest + ' ' + c.summary).toLowerCase();
+        return (
+          '<article class="cdb-card" data-region="' + c.region + '" data-involvement="' + c.involvement + '" data-search="' + searchBlob.replace(/"/g, '&quot;') + '">' +
+            '<span class="cdb-stamp">Open source</span>' +
+            '<div class="cdb-card-top">' +
+              '<span class="cdb-num">' + num + '</span>' +
+              '<h3>' + c.name + '</h3>' +
+            '</div>' +
+            '<div class="cdb-tags">' +
+              '<span class="cdb-tag">' + c.region + '</span>' +
+              '<span class="cdb-tag cdb-intensity"><span class="cdb-dot ' + c.intensity + '"></span>' + INTENSITY_LABELS[c.intensity] + '</span>' +
+            '</div>' +
+            '<div class="cdb-field-row">' +
+              '<p class="cdb-label">U.S. interest at stake</p>' +
+              '<p class="cdb-value">' + c.interest + '</p>' +
+            '</div>' +
+            '<div class="cdb-field-row">' +
+              '<p class="cdb-label">U.S. involvement level</p>' +
+              '<p class="cdb-value">' + INVOLVEMENT_LABELS[c.involvement] + '</p>' +
+            '</div>' +
+            '<p class="cdb-summary">' + c.summary + '</p>' +
+            '<p class="cdb-meta">Active since ' + c.since + '</p>' +
+          '</article>'
+        );
+      }).join('');
+      grid.innerHTML = html;
+    }
+
+    function applyFilters() {
+      var query = searchInput.value.trim().toLowerCase();
+      var region = regionSelect.value;
+      var involvement = involvementSelect.value;
+      var cards = grid.querySelectorAll('.cdb-card');
+      var visible = 0;
+
+      cards.forEach(function (card) {
+        var matchesRegion = region === 'all' || card.getAttribute('data-region') === region;
+        var matchesInvolvement = involvement === 'all' || card.getAttribute('data-involvement') === involvement;
+        var matchesSearch = !query || card.getAttribute('data-search').indexOf(query) !== -1;
+        var show = matchesRegion && matchesInvolvement && matchesSearch;
+        card.hidden = !show;
+        if (show) visible++;
+      });
+
+      countEl.textContent = 'Showing ' + visible + ' of ' + cards.length + ' tracked conflicts';
+      emptyEl.hidden = visible !== 0;
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      regionSelect.value = 'all';
+      involvementSelect.value = 'all';
+      applyFilters();
+    }
+
+    renderCards();
+    applyFilters();
+
+    searchInput.addEventListener('input', applyFilters);
+    regionSelect.addEventListener('change', applyFilters);
+    involvementSelect.addEventListener('change', applyFilters);
+    resetButtons.forEach(function (btn) { btn.addEventListener('click', resetFilters); });
+    form.addEventListener('submit', function (e) { e.preventDefault(); });
+  })();
+  </script>
+
   <footer>
     <div class="wrap">
       <span>&copy; 2026 Pierre Policy &amp; Strategy Consulting LLC</span>
