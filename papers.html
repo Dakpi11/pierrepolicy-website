@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Research &middot; Pierre Policy & Strategy Consulting</title>
   <meta name="description" content="Research papers and policy briefs published by Pierre Policy & Strategy Consulting.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -26,16 +26,9 @@
   <section class="dossier">
     <div class="wrap">
       <h2>Research &amp; analysis</h2>
-      <p class="sub">Original research and policy analysis. New work is added as it is completed.</p>
-
-      <div class="paper-entry">
-        <span class="date">Forthcoming</span>
-        <div>
-          <h3>France, NATO, and European defense</h3>
-          <p>An analytical paper on France's role in NATO and in European defense and alliance policy.</p>
-        </div>
-        <span class="dl muted-dl">Soon</span>
-      </div>
+      <p class="sub">Original research and policy analysis, newest first.</p>
+      <div class="filters" data-filters></div>
+      <div data-list></div>
     </div>
   </section>
 
@@ -580,5 +573,28 @@
     </div>
   </footer>
 
+<script src="articles.js"></script>
+<script>
+(function () {
+  var A = PPSC.sorted(), E = PPSC.esc, F = PPSC.fmtDate;
+  var list = document.querySelector('[data-list]'), fl = document.querySelector('[data-filters]');
+  var tags = ['All'].concat(A.map(function (a) { return a.tag; }).filter(function (t, i, arr) { return arr.indexOf(t) === i; }));
+  function render(tag) {
+    [].forEach.call(fl.children, function (b) { b.setAttribute('aria-pressed', b.textContent === tag); });
+    list.innerHTML = A.filter(function (a) { return tag === 'All' || a.tag === tag; }).map(function (a) {
+      var d = new Date(a.date + 'T12:00:00');
+      return '<div class="paper-entry"><span class="date">' + d.getFullYear() + ' &middot; ' + String(d.getMonth() + 1).padStart(2, '0') + '</span>' +
+        '<div><p class="tagline"><span class="tag">' + E(a.tag) + '</span>' + F(a.date) + ' &middot; ' + a.minutes + ' min</p>' +
+        '<h3><a href="' + E(a.url) + '">' + E(a.title) + '</a></h3><p>' + E(a.summary) + '</p></div>' +
+        (a.pdf ? '<a class="dl" href="' + E(a.pdf) + '">PDF &darr;</a>' : '<a class="dl" href="' + E(a.url) + '">Read</a>') + '</div>';
+    }).join('');
+  }
+  tags.forEach(function (t) {
+    var b = document.createElement('button'); b.type = 'button'; b.textContent = t;
+    b.addEventListener('click', function () { render(t); }); fl.appendChild(b);
+  });
+  render('All');
+})();
+</script>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pierre Policy &amp; Strategy Consulting</title>
   <meta name="description" content="Pierre Policy &amp; Strategy Consulting LLC is a minority-owned small business providing conflict analysis, policy research, and data analysis. SAM-registered. UEI FLE2XEAZ1TN6, CAGE 22DD7.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -23,17 +23,30 @@
     </div>
   </div>
 
-  <header class="hero">
+  <section class="featured" aria-labelledby="featured-title">
     <div class="wrap">
-      <p class="eyebrow">Pierre Policy &amp; Strategy Consulting LLC</p>
-      <h1>Conflict analysis and policy research for decision-makers.</h1>
-      <p class="lede">PP&amp;SC is a minority-owned small business that turns complex, multilingual information into clear, decision-ready analysis for federal agencies, prime contractors, and nonprofit partners, with particular strength in Haiti, the Caribbean, and the Francophone world.</p>
+      <p class="eyebrow">Latest analysis</p>
+      <article class="feat" data-featured>
+        <noscript><p>See our <a href="papers.html">research</a>.</p></noscript>
+      </article>
+      <div class="recent" data-recent></div>
+      <a class="all-link" href="papers.html">All research &rarr;</a>
+    </div>
+  </section>
+
+  <section class="firm-band">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Pierre Policy &amp; Strategy Consulting LLC</p>
+        <h2>Conflict analysis and policy research for decision-makers.</h2>
+        <p>PP&amp;SC is a minority-owned small business that turns complex, multilingual information into clear, decision-ready analysis for federal agencies, prime contractors, and nonprofit partners, with particular strength in Haiti, the Caribbean, and the Francophone world.</p>
+      </div>
       <div class="actions">
-        <a href="PPSC_Capability_Statement.pdf" class="primary">Capability statement (PDF)</a>
-        <a href="contracting.html">Work with us</a>
+        <a href="PPSC_Capability_Statement.pdf" class="btn">Capability statement (PDF)</a>
+        <a href="contracting.html" class="btn ghost">Work with us</a>
       </div>
     </div>
-  </header>
+  </section>
 
   <section class="credentials" aria-label="Federal registration">
     <div class="wrap">
@@ -136,5 +149,23 @@
     </div>
   </footer>
 
+<script src="articles.js"></script>
+<script>
+(function () {
+  var A = PPSC.sorted(), E = PPSC.esc, F = PPSC.fmtDate;
+  if (!A.length) return;
+  var f = A[0];
+  document.querySelector('[data-featured]').innerHTML =
+    '<p class="meta"><span class="tag">' + E(f.tag) + '</span>' + F(f.date) + ' &middot; ' + f.minutes + ' min read</p>' +
+    '<h1 id="featured-title"><a href="' + E(f.url) + '">' + E(f.title) + '</a></h1>' +
+    '<p class="dek">' + E(f.summary) + '</p>' +
+    '<div class="actions"><a class="btn" href="' + E(f.url) + '">Read the analysis</a>' +
+    (f.pdf ? '<a class="btn ghost" href="' + E(f.pdf) + '">PDF</a>' : '') + '</div>';
+  document.querySelector('[data-recent]').innerHTML = A.slice(1, 4).map(function (a) {
+    return '<a class="recent-item" href="' + E(a.url) + '"><p class="meta"><span class="tag">' + E(a.tag) + '</span>' + F(a.date) + '</p>' +
+      '<h3>' + E(a.title) + '</h3></a>';
+  }).join('');
+})();
+</script>
 </body>
 </html>

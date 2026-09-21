@@ -538,3 +538,90 @@ a.work-card:hover { text-decoration: none; background: #F3EDDD; }
   .cm-stat .v { font-size: 1.6rem; }
 }
 .cm .ph, .cm .ph span { font-style: italic; opacity: 0.55; }
+
+/* ---------- Featured article (homepage) ---------- */
+
+.featured { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+.featured .eyebrow, .firm-band .eyebrow {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--brass-bright); margin: 0 0 18px;
+}
+.meta { font-family: var(--mono); font-size: 12px; letter-spacing: 0.03em; opacity: 0.8; margin: 0 0 14px; display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.tag {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--brass); color: var(--ink); padding: 2px 8px; border-radius: 2px; opacity: 1;
+}
+.feat h1 { font-family: var(--display); font-weight: 500; font-size: clamp(2rem, 4.6vw, 3.1rem); line-height: 1.12; margin: 0 0 18px; }
+.feat h1 a { color: var(--paper-text); }
+.feat h1 a:hover { color: var(--brass-bright); text-decoration: none; }
+.feat .dek { font-size: 1.15rem; opacity: 0.88; max-width: 60ch; margin: 0 0 26px; }
+.feat .actions, .firm-band .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn.ghost { background: transparent; color: var(--paper-text); border: 1px solid var(--brass); }
+.btn.ghost:hover { border-color: var(--brass-bright); background: transparent; }
+.recent { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+.recent-item { display: block; border-top: 2px solid var(--brass); padding-top: 14px; color: var(--paper-text); }
+.recent-item:hover { text-decoration: none; }
+.recent-item:hover h3 { color: var(--brass-bright); }
+.recent-item .meta { margin-bottom: 8px; font-size: 11px; }
+.recent-item .tag { font-size: 10px; }
+.recent-item h3 { font-family: var(--body); font-weight: 600; font-size: 1rem; line-height: 1.35; margin: 0; }
+.all-link { display: inline-block; margin-top: 28px; font-family: var(--mono); font-size: 13px; }
+
+.firm-band { padding: 48px 0; border-bottom: 1px solid var(--rule); background: var(--ink-light); }
+.firm-band .wrap { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end; }
+.firm-band h2 { font-family: var(--display); font-weight: 500; font-size: 1.6rem; margin: 0 0 12px; }
+.firm-band p { margin: 0; opacity: 0.88; max-width: 60ch; }
+.firm-band .actions { flex-direction: column; }
+
+/* ---------- Research list ---------- */
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: -16px 0 24px; }
+.filters button {
+  font-family: var(--mono); font-size: 12px; background: transparent; color: var(--ink);
+  border: 1px solid rgba(22,35,47,0.3); padding: 6px 12px; border-radius: 2px; cursor: pointer;
+}
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--parchment); border-color: var(--ink); }
+.paper-entry h3 a { color: var(--ink); }
+.paper-entry .tagline { font-family: var(--mono); font-size: 11px; color: var(--slate); margin: 0 0 6px; display: flex; gap: 8px; align-items: center; }
+
+/* ---------- Article page ---------- */
+
+.wrap.narrow { max-width: 720px; }
+.article-head { padding: 64px 0 36px; border-bottom: 1px solid var(--rule); }
+.article-head h1 { font-family: var(--display); font-weight: 500; font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.12; margin: 0 0 18px; }
+.article-head .dek { font-size: 1.2rem; opacity: 0.88; margin: 0 0 20px; }
+.byline { font-family: var(--mono); font-size: 12px; opacity: 0.8; margin: 0; }
+.article-body { padding-top: 36px; padding-bottom: 56px; font-size: 1.08rem; line-height: 1.75; }
+.article-body p { margin: 0 0 1.2em; }
+.article-body h2 { font-family: var(--display); font-weight: 500; font-size: 1.6rem; margin: 2em 0 0.6em; }
+.article-body h3 { font-family: var(--body); font-weight: 600; font-size: 1.1rem; margin: 1.6em 0 0.5em; }
+.article-body sup a { font-family: var(--mono); font-size: 0.7em; padding: 0 2px; }
+.article-body ol, .article-body ul { padding-left: 1.3em; margin: 0 0 1.2em; }
+.article-body li { margin-bottom: 0.5em; }
+.article-body blockquote {
+  margin: 2em 0; padding: 4px 0 4px 24px; border-left: 3px solid var(--brass);
+  font-family: var(--display); font-size: 1.4rem; line-height: 1.4; color: var(--brass-bright);
+}
+.key-points { background: var(--parchment); color: var(--ink); padding: 22px 26px; border-top: 3px solid var(--brass); margin: 0 0 32px; border-radius: 2px; }
+.key-points h2 { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 10px; color: var(--ink); }
+.key-points ul { margin: 0; font-size: 1rem; }
+.article-figure { margin: 2em 0; overflow-x: auto; }
+.article-figure table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.article-figure th, .article-figure td { padding: 10px 12px; border-bottom: 1px solid var(--rule); text-align: left; }
+.article-figure th { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brass-bright); }
+.article-figure td:not(:first-child), .article-figure th:not(:first-child) { text-align: right; font-family: var(--mono); }
+.article-figure figcaption { font-size: 0.85rem; opacity: 0.7; margin-top: 10px; }
+.footnotes { margin-top: 3em; padding-top: 1em; border-top: 1px solid var(--rule); font-size: 0.9rem; opacity: 0.85; }
+.footnotes h2 { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 12px; color: var(--brass-bright); }
+.article-end { margin-top: 2.5em; padding: 24px; border: 1px solid var(--rule); border-radius: 2px; font-size: 0.95rem; }
+.article-end .cite { font-size: 0.88rem; opacity: 0.8; }
+.more { padding: 48px 0; border-top: 1px solid var(--rule); }
+.more h2 { font-family: var(--display); font-weight: 500; font-size: 1.6rem; margin: 0; }
+.more .recent { margin-top: 24px; }
+
+@media (max-width: 760px) {
+  .recent { grid-template-columns: 1fr; }
+  .firm-band .wrap { grid-template-columns: 1fr; }
+  .firm-band .actions { flex-direction: row; }
+  .featured { padding: 44px 0 36px; }
+}
