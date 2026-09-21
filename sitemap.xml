@@ -1,0 +1,8 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% assign pages_list = "index.html,papers.html,crisis-monitor.html,contracting.html,about.html" | split: "," %}{% for p in pages_list %}  <url><loc>{{ p | prepend: "/" | absolute_url }}</loc><lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod></url>
+{% endfor %}{% assign live = site.posts | where_exp: "p", "p.status != 'Draft'" %}{% for post in live %}  <url><loc>{{ post.url | absolute_url }}</loc><lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod></url>
+{% endfor %}</urlset>

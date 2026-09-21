@@ -1,0 +1,24 @@
+# Pierre Policy & Strategy Consulting — site settings
+title: Pierre Policy & Strategy Consulting
+description: Conflict analysis and policy research for decision-makers.
+author: Dakendjy Pierre
+
+# When a custom domain is connected, change baseurl to "" and url to the new domain.
+url: "https://dakpi11.github.io"
+baseurl: "/pierrepolicy-website"
+
+markdown: kramdown
+permalink: /articles/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+      author: Dakendjy Pierre
+
+exclude:
+  - README.md
+  - HOW-TO-PUBLISH.md
+  - article-template.html

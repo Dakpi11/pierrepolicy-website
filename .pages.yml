@@ -1,0 +1,78 @@
+# Pages CMS configuration: https://app.pagescms.org
+media:
+  input: assets/uploads
+  output: /assets/uploads
+
+content:
+  - name: articles
+    label: Articles
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, status, date, tag]
+    fields:
+      - name: status
+        label: Status (Draft = private preview link only; Published = on homepage and Research page)
+        type: select
+        default: Draft
+        options:
+          values:
+            - name: Draft
+              label: Draft
+            - name: Published
+              label: Published
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Publication date
+        type: date
+        format: "yyyy-MM-dd"
+        required: true
+      - name: tag
+        label: Topic tag
+        type: select
+        required: true
+        options:
+          values:
+            - name: Conflict
+              label: Conflict
+            - name: Defense
+              label: Defense
+            - name: Governance
+              label: Governance
+            - name: Haiti
+              label: Haiti
+            - name: Humanitarian
+              label: Humanitarian
+            - name: Security
+              label: Security
+            - name: Policy
+              label: Policy
+      - name: summary
+        label: Summary (2-3 sentences for the homepage and Research page)
+        type: text
+        required: true
+      - name: key_points
+        label: Key points (3 short bullets)
+        type: string
+        list: true
+      - name: author
+        label: Author
+        type: string
+        default: Dakendjy Pierre
+      - name: author_bio
+        label: Author bio (one sentence, optional)
+        type: text
+      - name: pdf
+        label: PDF version (optional)
+        type: file
+      - name: notes
+        label: Notes / sources (one per entry; cite them in the text as [1], [2], ...)
+        type: text
+        list: true
+      - name: body
+        label: Article text
+        type: rich-text
