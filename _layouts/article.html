@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} &middot; Pierre Policy &amp; Strategy Consulting</title>
+  <meta name="description" content="{{ page.summary | strip_html | strip_newlines | escape }}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Pierre Policy &amp; Strategy Consulting">
+  <meta property="og:title" content="{{ page.title | escape }}">
+  <meta property="og:description" content="{{ page.summary | strip_html | strip_newlines | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ '/og-image.png' | absolute_url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <meta name="theme-color" content="#16232F">
+  {% if page.status == "Draft" %}<meta name="robots" content="noindex, nofollow">{% endif %}
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}?v=4">
+</head>
+<body>
+{% if page.status == "Draft" %}<div class="draft-banner">DRAFT &middot; Private preview. Not listed on the site. Set Status to Published in the dashboard to go live.</div>{% endif %}
+{% assign minutes = content | number_of_words | divided_by: 200 | plus: 1 | floor %}
+  <div class="memo-strip">
+    <div class="wrap">
+      <span class="ref">REF: PPSC-{{ page.date | date: "%Y" }} &middot; RE: {{ page.tag | default: "Analysis" }}</span>
+      <nav>
+        <a href="{{ '/index.html' | relative_url }}">Home</a>
+        <a href="{{ '/index.html#capabilities' | relative_url }}">Capabilities</a>
+        <a href="{{ '/crisis-monitor.html' | relative_url }}">Crisis Monitor</a>
+        <a href="{{ '/papers.html' | relative_url }}" aria-current="page">Research</a>
+        <a href="{{ '/contracting.html' | relative_url }}">Contracting</a>
+        <a href="{{ '/about.html' | relative_url }}">About</a>
+      </nav>
+    </div>
+  </div>
+
+  <article class="article">
+    <header class="article-head">
+      <div class="wrap narrow">
+        <p class="meta"><span class="tag">{{ page.tag }}</span>{{ page.date | date: "%B %-d, %Y" }} &middot; {{ minutes }} min read</p>
+        <h1>{{ page.title }}</h1>
+        {% if page.summary %}<p class="dek">{{ page.summary }}</p>{% endif %}
+        <p class="byline">By <strong>{{ page.author | default: site.author }}</strong>, Pierre Policy &amp; Strategy Consulting</p>
+      </div>
+    </header>
+
+    <div class="wrap narrow article-body">
+      {% if page.key_points and page.key_points.size > 0 %}
+      <aside class="key-points">
+        <h2>Key points</h2>
+        <ul>
+          {% for point in page.key_points %}<li>{{ point }}</li>
+          {% endfor %}
+        </ul>
+      </aside>
+      {% endif %}
+
+      <div class="article-text" data-article-text>
+{{ content }}
+      </div>
+
+      {% if page.notes and page.notes.size > 0 %}
+      <section class="footnotes">
+        <h2>Notes</h2>
+        <ol>
+          {% for note in page.notes %}<li id="fn{{ forloop.index }}">{{ note | markdownify | remove: '<p>' | remove: '</p>' | strip }} <a href="#ref{{ forloop.index }}" aria-label="Back to text">&uarr;</a></li>
+          {% endfor %}
+        </ol>
+      </section>
+      {% endif %}
+
+      <div class="article-end">
+        <p><strong>About the author.</strong> {{ page.author_bio | default: "Dakendjy Pierre is the founder of Pierre Policy & Strategy Consulting, a research firm focused on conflict analysis, governance, and security." }}</p>
+        <p class="cite"><strong>Cite as:</strong> {{ page.author | default: site.author }}. &ldquo;{{ page.title }}.&rdquo; Pierre Policy &amp; Strategy Consulting, {{ page.date | date: "%B %-d, %Y" }}. {{ page.url | absolute_url }}</p>
+        {% if page.pdf and page.pdf != "" %}<a class="btn" href="{{ page.pdf | relative_url }}">Download PDF</a>{% endif %}
+      </div>
+    </div>
+  </article>
+
+  <section class="more">
+    <div class="wrap">
+      <h2>More analysis</h2>
+      <div class="recent">
+        {% assign shown = 0 %}
+        {% assign live = site.posts | where_exp: "p", "p.status != 'Draft'" %}{% for post in live %}{% if post.url != page.url and shown < 3 %}{% assign shown = shown | plus: 1 %}
+        <a class="recent-item" href="{{ post.url | relative_url }}"><p class="meta"><span class="tag">{{ post.tag }}</span>{{ post.date | date: "%B %-d, %Y" }}</p><h3>{{ post.title }}</h3></a>
+        {% endif %}{% endfor %}
+      </div>
+      <a class="all-link" href="{{ '/papers.html' | relative_url }}">All research &rarr;</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>&copy; {{ site.time | date: "%Y" }} Pierre Policy &amp; Strategy Consulting LLC &middot; UEI FLE2XEAZ1TN6 &middot; CAGE 22DD7</span>
+      <span>Bethesda, Maryland &middot; Washington, D.C. metro</span>
+    </div>
+  </footer>
+
+<script>
+/* Turn [1], [2] ... in the article text into links to the Notes list. */
+(function () {
+  var box = document.querySelector('[data-article-text]');
+  if (!box || !document.getElementById('fn1')) return;
+  var walker = document.createTreeWalker(box, NodeFilter.SHOW_TEXT), nodes = [], n;
+  while ((n = walker.nextNode())) if (/\[\d+\]/.test(n.nodeValue)) nodes.push(n);
+  var seen = {};
+  nodes.forEach(function (node) {
+    var frag = document.createDocumentFragment();
+    node.nodeValue.split(/(\[\d+\])/).forEach(function (part) {
+      var m = part.match(/^\[(\d+)\]$/);
+      if (m && document.getElementById('fn' + m[1])) {
+        var sup = document.createElement('sup'), a = document.createElement('a');
+        a.href = '#fn' + m[1]; a.textContent = m[1];
+        if (!seen[m[1]]) { a.id = 'ref' + m[1]; seen[m[1]] = 1; }
+        sup.appendChild(a); frag.appendChild(sup);
+      } else if (part) frag.appendChild(document.createTextNode(part));
+    });
+    node.parentNode.replaceChild(frag, node);
+  });
+})();
+</script>
+</body>
+</html>
