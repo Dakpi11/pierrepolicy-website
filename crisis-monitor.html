@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crisis Monitor &middot; Pierre Policy &amp; Strategy Consulting</title>
+  <meta name="description" content="PP&amp;SC Crisis Monitor: how five of the world's gravest humanitarian crises developed, with headline figures and live displacement and economic data for Sudan, Gaza, Haiti, the DRC, and Myanmar.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="memo-strip">
+    <div class="wrap">
+      <span class="ref">REF: PPSC-2026 &middot; RE: Crisis Monitor</span>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#capabilities">Capabilities</a>
+        <a href="crisis-monitor.html" aria-current="page">Crisis Monitor</a>
+        <a href="papers.html">Research</a>
+        <a href="contracting.html">Contracting</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="hero hero-compact">
+    <div class="wrap">
+      <p class="eyebrow">PP&amp;SC Crisis Monitor</p>
+      <h1>Five crises, one place.</h1>
+      <p class="lede">How five of the world's gravest humanitarian emergencies developed, where they stand now, and what the data shows. Headline figures come from UN and other primary sources; the charts pull live from the World Bank and UNHCR each time the page loads.</p>
+    </div>
+  </header>
+
+  <section class="cm">
+    <div class="wrap">
+      <div class="cm-tabs" role="tablist" aria-label="Select a country" data-cm-tabs></div>
+
+      <article class="cm-panel" data-cm-panel aria-live="polite"></article>
+
+      <p class="cm-method"><strong>Method.</strong> Headline figures are curated from UN OCHA, IOM, UNHCR, IPC, WFP, WHO, BINUH, the World Bank and other primary sources, and show the date each figure refers to. They are reviewed monthly. Charts load directly from the <a href="https://data.worldbank.org/" rel="noopener">World Bank Open Data API</a> and the <a href="https://www.unhcr.org/refugee-statistics/" rel="noopener">UNHCR Refugee Data Finder API</a>; these sources publish annual figures, so the latest year may lag current events. Countries are drawn from the <a href="https://www.rescue.org/watchlist2026" rel="noopener">IRC 2026 Emergency Watchlist</a>.</p>
+      <p class="cm-updated">Headline figures last reviewed: September 2026</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>&copy; 2026 Pierre Policy &amp; Strategy Consulting LLC &middot; UEI FLE2XEAZ1TN6 &middot; CAGE 22DD7</span>
+      <span>Bethesda, Maryland &middot; Washington, D.C. metro</span>
+    </div>
+  </footer>
+
+<script>
+(function () {
+  // ---------------------------------------------------------------
+  // CURATED DATA. Update figures here each month. Each stat needs:
+  // value, label, asOf (what period the figure covers), src, url.
+  // ---------------------------------------------------------------
+  var COUNTRIES = [
+    {
+      id: 'sudan', name: 'Sudan', iso: 'SDN', region: 'East Africa', since: 'War since April 2023',
+      summary: 'The world’s largest displacement crisis. A war between the Sudanese Armed Forces and the Rapid Support Forces has uprooted millions, brought famine to parts of Darfur and Kordofan, and collapsed the economy.',
+      stats: [
+        { value: '9M+', label: 'People internally displaced', asOf: 'Aug 2026', src: 'UN OCHA via UN News', url: 'https://news.un.org/en/story/2026/08/1168109' },
+        { value: '4.3M', label: 'Sudanese refugees in the region', asOf: 'Feb 2026', src: 'UNHCR', url: 'https://news.un.org/en/story/2026/02/1166979' },
+        { value: '30M+', label: 'People in need of aid', asOf: 'Aug 2026', src: 'UN OCHA', url: 'https://news.un.org/en/story/2026/08/1168109' },
+        { value: '19.5M', label: 'Facing acute food insecurity (IPC 3+), with famine risk in 14 areas', asOf: 'Feb–May 2026', src: 'IPC', url: 'https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1163315/' },
+        { value: '150%', label: 'Inflation in 2025', asOf: '2025', src: 'African Development Bank', url: 'https://www.afdb.org/en/countries/east-africa/sudan/sudan-economic-outlook' }
+      ],
+      history: [
+        // PLACEHOLDER: replace with 4-6 dated milestones: ['Month Year', 'One sentence on what happened.'],
+        ['[Date]', '[Placeholder] Root cause or starting point of the crisis.'],
+        ['[Date]', '[Placeholder] Key escalation.'],
+        ['[Date]', '[Placeholder] Turning point.'],
+        ['[Date]', '[Placeholder] Most recent major development.']
+      ],
+      now: '[Placeholder] Two sentences on where the crisis stands today.',
+      caveat: 'Death tolls are highly contested: ACLED counts about 56,000 directly reported violent deaths, while other estimates exceed 150,000. IDP totals are falling partly because of returns.',
+      unhcr: true
+    },
+    {
+      id: 'gaza', name: 'Gaza', iso: 'PSE', region: 'Middle East', since: 'War since October 2023; ceasefire since October 2025',
+      summary: 'More than two years of war left almost the entire population displaced and dependent on aid. A ceasefire has formally held since October 2025, but strikes, shelter shortages and aid restrictions continue.',
+      stats: [
+        { value: '1.98M', label: 'People needing shelter assistance (94% of the population)', asOf: 'Aug 2026', src: 'UN OCHA', url: 'https://www.ochaopt.org/content/humanitarian-situation-report-28-august-2026' },
+        { value: '1.4M', label: 'Projected to face acute food insecurity (IPC 3+), 67% of the population', asOf: 'Jul–Dec 2026', src: 'IPC', url: 'https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165303/?iso3=PSE' },
+        { value: '73,431', label: 'Killed since 7 Oct 2023, per the Gaza Ministry of Health', asOf: '25 Aug 2026', src: 'Gaza MoH via WAFA', url: 'https://english.wafa.ps/Pages/Details/174089' },
+        { value: '78%', label: 'Unemployment in Gaza in 2025 (22% before Oct 2023)', asOf: '2025', src: 'World Bank', url: 'https://thedocs.worldbank.org/en/doc/caf69bb9db6d729c6b35254c5815df9a-0280012026/original/Palestinian-Economic-Monitor-5-19-26web.pdf' },
+        { value: '$71.5B', label: 'Estimated reconstruction needs', asOf: 'May 2026', src: 'World Bank', url: 'https://thedocs.worldbank.org/en/doc/caf69bb9db6d729c6b35254c5815df9a-0280012026/original/Palestinian-Economic-Monitor-5-19-26web.pdf' }
+      ],
+      history: [
+        // PLACEHOLDER: replace with 4-6 dated milestones: ['Month Year', 'One sentence on what happened.'],
+        ['[Date]', '[Placeholder] Root cause or starting point of the crisis.'],
+        ['[Date]', '[Placeholder] Key escalation.'],
+        ['[Date]', '[Placeholder] Turning point.'],
+        ['[Date]', '[Placeholder] Most recent major development.']
+      ],
+      now: '[Placeholder] Two sentences on where the crisis stands today.',
+      caveat: 'Casualty totals come from the Gaza Ministry of Health and cannot be independently verified. Economic charts cover the West Bank and Gaza combined. UNHCR data is not shown because Palestine refugees fall under UNRWA’s mandate.',
+      unhcr: false
+    },
+    {
+      id: 'haiti', name: 'Haiti', iso: 'HTI', region: 'Caribbean', since: 'Escalating gang crisis since 2021',
+      summary: 'Armed gangs control most of Port-au-Prince and are spreading into the countryside. Displacement is at a record high, half the population faces acute hunger, and the economy has shrunk for seven straight years.',
+      stats: [
+        { value: '~1.5M', label: 'People internally displaced, a record', asOf: 'Jun 2026', src: 'IOM', url: 'https://www.iom.int/news/haitis-displacement-crisis-hits-record-15-million-amid-escalating-violence' },
+        { value: '6.4M', label: 'People in need, more than half the population', asOf: '2026 plan', src: 'UN OCHA', url: 'https://reliefweb.int/report/haiti/haiti-2026-humanitarian-needs-and-response-plan-executive-summary-december-2025' },
+        { value: '5.83M', label: 'Facing acute food insecurity (IPC 3+), 52% of those analysed', asOf: 'Mar–Jun 2026', src: 'IPC', url: 'https://www.ipcinfo.org/ipc-country-analysis/en/?country=HTI' },
+        { value: '1,408', label: 'People killed in violence in one quarter (Apr–Jun 2026)', asOf: 'Q2 2026', src: 'BINUH / OHCHR', url: 'https://binuh.unmissions.org/en/news/haiti-au-moins-1-408-personnes-tuees-et-656-blessees-au-cours-du-deuxieme-trimestre-2026' },
+        { value: '7 yrs', label: 'Consecutive years of economic contraction (FY2025: −2.7%)', asOf: 'FY2025', src: 'World Bank', url: 'https://thedocs.worldbank.org/en/doc/e408a7e21ba62d843bdd90dc37e61b57-0500032021/related/mpo-hti.pdf' }
+      ],
+      history: [
+        // PLACEHOLDER: replace with 4-6 dated milestones: ['Month Year', 'One sentence on what happened.'],
+        ['[Date]', '[Placeholder] Root cause or starting point of the crisis.'],
+        ['[Date]', '[Placeholder] Key escalation.'],
+        ['[Date]', '[Placeholder] Turning point.'],
+        ['[Date]', '[Placeholder] Most recent major development.']
+      ],
+      now: '[Placeholder] Two sentences on where the crisis stands today.',
+      caveat: 'Access limits in gang-held areas mean casualty and displacement figures are minimum estimates.',
+      unhcr: true
+    },
+    {
+      id: 'drc', name: 'DR Congo', iso: 'COD', region: 'Central Africa', since: 'M23 offensive since 2021; Goma fell January 2025',
+      summary: 'Decades of conflict in the east have produced one of the world’s largest displacement and hunger crises, now compounded by an Ebola outbreak. Peace deals signed in 2025 have not stopped the fighting.',
+      stats: [
+        { value: '5.6M+', label: 'People internally displaced', asOf: 'Apr 2026', src: 'OCHA / IOM', url: 'https://caritasdev.cd/au-13-avril-2026-la-rdc-compte-plus-de-561-millions-de-personnes-deplacees-internes-ocha-oim/' },
+        { value: '1.24M', label: 'Congolese refugees and asylum-seekers in the region', asOf: 'Apr 2026', src: 'UNHCR', url: 'https://data.unhcr.org/en/situations/drc' },
+        { value: '26.5M', label: 'Facing acute food insecurity (IPC 3+)', asOf: 'Jan–Jun 2026', src: 'IPC', url: 'https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1163307/' },
+        { value: '14.9M', label: 'People in need (prioritised 2026 plan)', asOf: '2026 plan', src: 'UN OCHA via UNICEF', url: 'https://www.unicef.org/media/179311/file/2026-HAC-DRC.pdf' },
+        { value: '6,757', label: 'Confirmed Ebola cases in DRC (Bundibugyo strain)', asOf: '7 Sep 2026', src: 'WHO', url: 'https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON617' }
+      ],
+      history: [
+        // PLACEHOLDER: replace with 4-6 dated milestones: ['Month Year', 'One sentence on what happened.'],
+        ['[Date]', '[Placeholder] Root cause or starting point of the crisis.'],
+        ['[Date]', '[Placeholder] Key escalation.'],
+        ['[Date]', '[Placeholder] Turning point.'],
+        ['[Date]', '[Placeholder] Most recent major development.']
+      ],
+      now: '[Placeholder] Two sentences on where the crisis stands today.',
+      caveat: 'The displacement figure is from April 2026 and reported via a secondary source. The 2026 people-in-need figure uses a narrower, prioritised scope and is not comparable with 2025’s 21.2M.',
+      unhcr: true
+    },
+    {
+      id: 'myanmar', name: 'Myanmar', iso: 'MMR', region: 'Southeast Asia', since: 'Civil war since the February 2021 coup',
+      summary: 'Five years after the military coup, civil war, a devastating 2025 earthquake and an economic shock have displaced millions. A military-backed government took office in 2026 after a disputed election.',
+      stats: [
+        { value: '~3.8M', label: 'People displaced inside Myanmar', asOf: 'Jul 2026', src: 'UN OCHA', url: 'https://myanmar.un.org/sites/default/files/2026-07/OCHA%20Myanmar%20-%20Humanitarian%20Update%20No.%2052_final.pdf' },
+        { value: '16.2M', label: 'People in need of aid', asOf: '2026 plan', src: 'UN OCHA', url: 'https://www.unocha.org/publications/report/myanmar/myanmar-humanitarian-needs-and-response-plan-2026' },
+        { value: '1.2M', label: 'Rohingya refugees in Bangladesh', asOf: 'Jun 2026', src: 'UNHCR via UN News', url: 'https://news.un.org/en/story/2026/06/1167623' },
+        { value: '12.4M', label: 'People facing acute hunger, nearly a quarter of the population', asOf: 'Mar 2026', src: 'WFP', url: 'https://www.wfp.org/news/one-year-after-myanmar-earthquake-new-global-shocks-threaten-push-survivors-back-hunger' },
+        { value: '24.6%', label: 'Inflation, year on year (April 2026)', asOf: 'Apr 2026', src: 'World Bank', url: 'https://www.worldbank.org/en/news/press-release/2026/06/16/myanmar-s-economy-shows-tentative-stabilization-but-fuel-shock-intensifies-pressures' }
+      ],
+      history: [
+        // PLACEHOLDER: replace with 4-6 dated milestones: ['Month Year', 'One sentence on what happened.'],
+        ['[Date]', '[Placeholder] Root cause or starting point of the crisis.'],
+        ['[Date]', '[Placeholder] Key escalation.'],
+        ['[Date]', '[Placeholder] Turning point.'],
+        ['[Date]', '[Placeholder] Most recent major development.']
+      ],
+      now: '[Placeholder] Two sentences on where the crisis stands today.',
+      caveat: 'Access limits make all figures estimates. Some economic data comes partly from official sources in Myanmar.',
+      unhcr: true
+    }
+  ];
+
+  var tabsEl = document.querySelector('[data-cm-tabs]');
+  var panel = document.querySelector('[data-cm-panel]');
+  var cache = {};
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function fmtNum(n) {
+    if (n >= 1e6) return (n / 1e6).toFixed(n >= 1e7 ? 0 : 1).replace(/\.0$/, '') + 'M';
+    if (n >= 1e3) return Math.round(n / 1e3) + 'K';
+    return String(Math.round(n));
+  }
+
+  COUNTRIES.forEach(function (c) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.role = 'tab'; b.textContent = c.name; b.dataset.id = c.id;
+    b.addEventListener('click', function () { history.replaceState(null, '', '#' + c.id); show(c.id); });
+    tabsEl.appendChild(b);
+  });
+
+  function show(id) {
+    var c = COUNTRIES.filter(function (x) { return x.id === id; })[0] || COUNTRIES[0];
+    [].forEach.call(tabsEl.children, function (b) { b.setAttribute('aria-selected', b.dataset.id === c.id); });
+    panel.innerHTML =
+      '<header class="cm-head"><p class="cm-meta">' + esc(c.region) + ' &middot; ' + esc(c.since) + '</p>' +
+      '<h2>' + esc(c.name) + '</h2><p class="cm-summary">' + esc(c.summary) + '</p></header>' +
+      '<div class="cm-stats">' + c.stats.map(function (s) {
+        return '<div class="cm-stat"><span class="v">' + esc(s.value) + '</span><span class="l">' + esc(s.label) + '</span>' +
+          '<a class="s" href="' + esc(s.url) + '" rel="noopener" target="_blank">' + esc(s.src) + ' &middot; ' + esc(s.asOf) + '</a></div>';
+      }).join('') + '</div>' +
+      '<div class="cm-cols"><section class="cm-history"><h3>How we got here</h3><ol>' +
+      c.history.map(function (h) { var ph = /\[Placeholder\]/.test(h[1]); return '<li' + (ph ? ' class="ph"' : '') + '><span class="d">' + esc(h[0]) + '</span><span>' + esc(h[1]) + '</span></li>'; }).join('') +
+      '</ol></section><section class="cm-now"><h3>Where it stands</h3><p' + (/\[Placeholder\]/.test(c.now) ? ' class="ph"' : '') + '>' + esc(c.now) + '</p>' +
+      '<p class="cm-caveat"><strong>Data note.</strong> ' + esc(c.caveat) + '</p></section></div>' +
+      '<section class="cm-live"><h3><span class="dot" aria-hidden="true"></span>Live data</h3>' +
+      '<p class="cm-live-sub">Loaded from official APIs when you opened this page.</p>' +
+      '<div class="cm-charts">' +
+        chartShell('gdp', 'Economic growth', 'Real GDP growth, % per year', 'World Bank') +
+        chartShell('cpi', 'Inflation', 'Consumer prices, % per year', 'World Bank') +
+        (c.unhcr ? chartShell('ref', 'Refugees abroad', 'Refugees and asylum-seekers from ' + c.name, 'UNHCR') +
+                   chartShell('idp', 'Displaced at home', 'Internally displaced people (end of year)', 'UNHCR / IDMC') : '') +
+      '</div></section>';
+    loadLive(c);
+  }
+
+  function chartShell(key, title, sub, src) {
+    return '<figure class="cm-chart" data-chart="' + key + '"><figcaption><strong>' + title + '</strong><span>' + esc(sub) + '</span></figcaption>' +
+      '<div class="cm-plot"><p class="cm-loading">Loading…</p></div><p class="cm-src">Source: ' + src + ' <span data-latest></span></p></figure>';
+  }
+
+  function wb(iso, ind) {
+    var key = 'wb:' + iso + ind;
+    if (!cache[key]) cache[key] = fetch('https://api.worldbank.org/v2/country/' + iso + '/indicator/' + ind + '?format=json&per_page=40&date=2012:2026')
+      .then(function (r) { return r.json(); })
+      .then(function (d) { return (d[1] || []).filter(function (x) { return x.value !== null; }).map(function (x) { return { year: +x.date, value: x.value }; }).sort(function (a, b) { return a.year - b.year; }); });
+    return cache[key];
+  }
+  function unhcr(iso) {
+    var key = 'un:' + iso;
+    if (!cache[key]) cache[key] = fetch('https://api.unhcr.org/population/v1/population/?yearFrom=2012&yearTo=2026&coo=' + iso + '&cf_type=ISO&limit=40')
+      .then(function (r) { return r.json(); })
+      .then(function (d) { return d.items || []; });
+    return cache[key];
+  }
+
+  function fill(key, series, opts) {
+    var fig = panel.querySelector('[data-chart="' + key + '"]');
+    if (!fig) return;
+    var plot = fig.querySelector('.cm-plot');
+    if (!series || !series.length) { plot.innerHTML = '<p class="cm-loading">No recent data published.</p>'; return; }
+    var last = series[series.length - 1];
+    fig.querySelector('[data-latest]').textContent = '· latest: ' + last.year;
+    plot.innerHTML = barChart(series, opts);
+    wireTips(plot, opts);
+  }
+
+  function loadLive(c) {
+    var id = c.id;
+    wb(c.iso, 'NY.GDP.MKTP.KD.ZG').then(function (s) { if (current() === id) fill('gdp', s, { signed: true, pct: true }); })
+      .catch(function () { fail('gdp'); });
+    wb(c.iso, 'FP.CPI.TOTL.ZG').then(function (s) { if (current() === id) fill('cpi', s, { pct: true }); })
+      .catch(function () { fail('cpi'); });
+    if (c.unhcr) unhcr(c.iso).then(function (items) {
+      if (current() !== id) return;
+      var byYear = items.map(function (i) { return { year: +i.year, ref: (+i.refugees || 0) + (+i.asylum_seekers || 0), idp: +i.idps || 0 }; })
+        .sort(function (a, b) { return a.year - b.year; });
+      fill('ref', byYear.filter(function (x) { return x.ref > 0; }).map(function (x) { return { year: x.year, value: x.ref }; }), {});
+      fill('idp', byYear.filter(function (x) { return x.idp > 0; }).map(function (x) { return { year: x.year, value: x.idp }; }), {});
+    }).catch(function () { fail('ref'); fail('idp'); });
+  }
+  function fail(key) {
+    var fig = panel.querySelector('[data-chart="' + key + '"]');
+    if (fig) fig.querySelector('.cm-plot').innerHTML = '<p class="cm-loading">Live data is unavailable right now. Please try again later.</p>';
+  }
+  function current() { var sel = tabsEl.querySelector('[aria-selected="true"]'); return sel && sel.dataset.id; }
+
+  function barChart(data, o) {
+    var W = 460, H = 200, padL = 44, padR = 8, padT = 12, padB = 26;
+    var vals = data.map(function (d) { return d.value; });
+    var max = Math.max.apply(null, vals.concat([0])), min = Math.min.apply(null, vals.concat([0]));
+    if (max === min) max = min + 1;
+    var span = max - min, pw = W - padL - padR, ph = H - padT - padB;
+    var y = function (v) { return padT + (max - v) / span * ph; };
+    var step = pw / data.length, bw = Math.max(4, step - 4);
+    var ticks = niceTicks(min, max);
+    var fmt = function (v) { return o.pct ? (Math.round(v * 10) / 10) + '%' : fmtNum(v); };
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Bar chart">';
+    ticks.forEach(function (t) {
+      s += '<line x1="' + padL + '" x2="' + (W - padR) + '" y1="' + y(t) + '" y2="' + y(t) + '" class="' + (t === 0 ? 'zero' : 'grid') + '"/>' +
+           '<text x="' + (padL - 6) + '" y="' + (y(t) + 3.5) + '" class="tick" text-anchor="end">' + (o.pct ? t + '%' : fmtNum(t)) + '</text>';
+    });
+    data.forEach(function (d, i) {
+      var x = padL + i * step + (step - bw) / 2, y0 = y(0), y1 = y(d.value);
+      var top = Math.min(y0, y1), h = Math.max(1, Math.abs(y1 - y0));
+      var neg = o.signed && d.value < 0;
+      var r = Math.min(3, bw / 2, h);
+      var path = neg
+        ? 'M' + x + ',' + top + 'h' + bw + 'v' + (h - r) + 'q0,' + r + ' -' + r + ',' + r + 'h-' + (bw - 2 * r) + 'q-' + r + ',0 -' + r + ',-' + r + 'z'
+        : 'M' + x + ',' + (top + h) + 'v-' + (h - r) + 'q0,-' + r + ' ' + r + ',-' + r + 'h' + (bw - 2 * r) + 'q' + r + ',0 ' + r + ',' + r + 'v' + (h - r) + 'z';
+      s += '<g class="bar' + (neg ? ' neg' : '') + '" data-i="' + i + '" data-tip="' + d.year + ': ' + fmt(d.value) + '">' +
+           '<rect class="hit" x="' + (padL + i * step) + '" y="' + padT + '" width="' + step + '" height="' + ph + '"/>' +
+           '<path d="' + path + '"/></g>';
+      if (i === 0 || i === data.length - 1 || (data.length > 8 && i % 3 === 0 && i < data.length - 2))
+        s += '<text x="' + (x + bw / 2) + '" y="' + (H - 8) + '" class="tick" text-anchor="middle">' + d.year + '</text>';
+    });
+    var L = data[data.length - 1], lx = padL + (data.length - 1) * step + step / 2;
+    s += '<text x="' + Math.min(lx, W - padR - 2) + '" y="' + (L.value >= 0 ? y(L.value) - 5 : y(L.value) + 12) + '" class="lab" text-anchor="end">' + fmt(L.value) + '</text>';
+    return s + '</svg><div class="cm-tip" hidden></div>';
+  }
+  function niceTicks(min, max) {
+    var raw = (max - min) / 4, mag = Math.pow(10, Math.floor(Math.log10(raw))), n = raw / mag;
+    var st = (n < 1.5 ? 1 : n < 3 ? 2 : n < 7 ? 5 : 10) * mag, out = [];
+    for (var t = Math.ceil(min / st) * st; t <= max + 1e-9; t += st) out.push(Math.round(t * 100) / 100);
+    if (out.indexOf(0) < 0 && min <= 0 && max >= 0) out.push(0);
+    return out;
+  }
+  function wireTips(plot, o) {
+    var tip = plot.querySelector('.cm-tip');
+    [].forEach.call(plot.querySelectorAll('.bar'), function (g) {
+      g.addEventListener('mouseenter', function (e) {
+        tip.textContent = g.dataset.tip; tip.hidden = false; g.classList.add('on');
+        var r = plot.getBoundingClientRect(), br = g.querySelector('.hit').getBoundingClientRect();
+        tip.style.left = Math.min(Math.max(br.left - r.left + br.width / 2, 40), r.width - 40) + 'px';
+      });
+      g.addEventListener('mouseleave', function () { tip.hidden = true; g.classList.remove('on'); });
+    });
+  }
+
+  show((location.hash || '').slice(1));
+  window.addEventListener('hashchange', function () { show(location.hash.slice(1)); });
+})();
+</script>
+</body>
+</html>
