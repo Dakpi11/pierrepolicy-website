@@ -1,7 +1,7 @@
 ---
 status: Published
 title: "France's Defense Renaissance: Navigating NATO Without the United States"
-date: 2026-10-05
+date: 2025-04-16
 tag: Defense
 summary: "If the United States steps back from NATO, France is the European power best placed to lead, but its debt, domestic politics, and reluctant allies limit how far it can go. This memo weighs three options and ranks an expanded European Intervention Initiative as the most viable."
 key_points:

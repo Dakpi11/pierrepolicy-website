@@ -1,7 +1,7 @@
 ---
 status: Published
 title: "Accountability in the Russia–Ukraine Conflict: Pairing the ICC with a Truth Commission"
-date: 2026-10-05
+date: 2025-03-24
 tag: Conflict
 summary: "The International Criminal Court has charged Russian leaders over the unlawful transfer of Ukrainian children, but it cannot enforce its own warrants. This brief argues that a UN- or EU-backed truth commission should work alongside the Court to document abuses, establish intent, and sustain diplomatic pressure on Moscow."
 key_points:

@@ -1,7 +1,7 @@
 ---
 status: Published
 title: "Strengthening U.S. Diplomatic Practice: Challenges and Recommendations for the State Department"
-date: 2026-10-05
+date: 2025-01-27
 tag: Policy
 summary: "Staff cuts, a risk-averse culture, tight budgets, and thin professional development leave the State Department poorly equipped for a world of rising conflict, cyber threats, and AI-driven disinformation. This decision memo proposes a reserve diplomatic corps, AI-assisted analysis, flexible career paths, and a training float to build a more agile Foreign Service."
 key_points:
