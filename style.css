@@ -730,3 +730,90 @@ a.work-card, .cm-stat, .cm-tabs button, .paper-entry, .clause, .fact, .cm-chart 
 .cm-plot .bar.neg path { fill: #E0A499; }
 .cm-plot .bar.last path { fill: #3A6EA5; }
 .cm-plot .bar.neg.last path { fill: #C0503F; }
+
+/* ===== DEPTH TEST: lighting, gradients, layered shadows (remove this block to return to stock) ===== */
+:root {
+  --sh-card: 0 1px 1px rgba(10,16,22,0.10), 0 4px 10px -2px rgba(10,16,22,0.18), 0 18px 36px -18px rgba(10,16,22,0.45);
+  --sh-card-hover: 0 2px 2px rgba(10,16,22,0.10), 0 10px 20px -4px rgba(10,16,22,0.22), 0 30px 50px -22px rgba(10,16,22,0.55);
+  --hi-edge: inset 0 1px 0 rgba(255,255,255,0.55);
+}
+body {
+  background:
+    radial-gradient(1200px 600px at 50% -200px, rgba(199,164,110,0.10), transparent 70%),
+    linear-gradient(180deg, #1A2936 0px, var(--ink) 900px);
+  background-color: var(--ink);
+  background-repeat: no-repeat;
+}
+.memo-strip {
+  position: relative; z-index: 5;
+  background: linear-gradient(180deg, rgba(31,49,64,0.92), rgba(22,35,47,0.92));
+  box-shadow: 0 6px 18px -8px rgba(0,0,0,0.6);
+}
+.hero {
+  position: relative;
+  background:
+    radial-gradient(700px 360px at 18% 30%, rgba(199,164,110,0.13), transparent 70%),
+    radial-gradient(900px 500px at 85% 120%, rgba(58,110,165,0.12), transparent 70%);
+}
+.hero h1 { text-shadow: 0 2px 18px rgba(0,0,0,0.35); }
+.credentials {
+  background: linear-gradient(180deg, #24394A 0%, var(--ink-light) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), inset 0 -10px 20px -14px rgba(0,0,0,0.5), 0 12px 24px -16px rgba(0,0,0,0.6);
+  position: relative;
+}
+/* Parchment sections read as a lit desk surface */
+.dossier, .ppsc-cdb {
+  background: radial-gradient(1100px 500px at 50% 0%, #F4EEDD 0%, var(--parchment) 55%, #E3DAC3 100%) !important;
+  box-shadow: inset 0 14px 24px -18px rgba(0,0,0,0.35), inset 0 -14px 24px -18px rgba(0,0,0,0.25);
+}
+/* Cards: raised paper with a lit top edge */
+.work-card, .cm-stat, .cm-chart {
+  background: linear-gradient(180deg, #F8F3E6 0%, #EDE5D0 100%) !important;
+  box-shadow: var(--hi-edge), var(--sh-card);
+  border-radius: 4px !important;
+}
+a.work-card:hover, .cm-stat:hover, .cm-chart:hover { box-shadow: var(--hi-edge), var(--sh-card-hover) !important; }
+html #ppsc-conflicts-db .cdb-card {
+  background: linear-gradient(180deg, #F6F0E1 0%, #E6DCC4 100%);
+  border-color: rgba(22,35,47,0.10);
+  border-radius: 4px;
+  box-shadow: var(--hi-edge), var(--sh-card);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+html #ppsc-conflicts-db .cdb-card:hover { transform: translateY(-3px); box-shadow: var(--hi-edge), var(--sh-card-hover); }
+html #ppsc-conflicts-db .cdb-controls input, html #ppsc-conflicts-db .cdb-controls select {
+  box-shadow: inset 0 2px 4px rgba(10,16,22,0.12); border-radius: 3px;
+}
+/* Paper list and tables sit on a raised sheet */
+[data-list], .contributions .wrap > div:last-child, .data-table {
+  background: linear-gradient(180deg, #FBF7EC, #F1EAD7);
+  box-shadow: var(--hi-edge), var(--sh-card);
+  border-radius: 4px;
+}
+[data-list], .contributions .wrap > div:last-child { padding: 4px 24px; }
+.paper-entry:last-child { border-bottom: none; }
+.data-table th, .data-table td { padding-left: 16px; padding-right: 16px; }
+/* Dark sections: cards float above the ink */
+.fact {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+  border: 1px solid rgba(176,141,87,0.18); border-radius: 4px; padding: 16px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 14px 28px -18px rgba(0,0,0,0.7);
+}
+.clause {
+  background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0));
+  border: 1px solid rgba(176,141,87,0.14) !important; border-radius: 4px; padding: 22px 20px; margin-bottom: 12px;
+  box-shadow: 0 14px 28px -20px rgba(0,0,0,0.7);
+}
+.cm-tabs button { box-shadow: 0 6px 14px -10px rgba(0,0,0,0.7); border-radius: 3px; }
+.cm-tabs button[aria-selected="true"] { background: linear-gradient(180deg, var(--brass-bright), var(--brass)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 8px 16px -8px rgba(0,0,0,0.6); }
+/* Buttons: tactile */
+.btn, .hero .actions a.primary {
+  background: linear-gradient(180deg, var(--brass-bright) 0%, var(--brass) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 8px 18px -10px rgba(0,0,0,0.7);
+  border-radius: 3px;
+}
+.btn:hover, .hero .actions a.primary:hover { filter: brightness(1.05); }
+footer { background: linear-gradient(180deg, transparent, rgba(0,0,0,0.25)); }
+.dossier:has(+ .contributions) { box-shadow: inset 0 14px 24px -18px rgba(0,0,0,0.35); }
+.dossier.contributions { box-shadow: inset 0 -14px 24px -18px rgba(0,0,0,0.25); background: linear-gradient(180deg, var(--parchment) 0%, #E3DAC3 100%) !important; }
+/* ===== END DEPTH TEST ===== */
