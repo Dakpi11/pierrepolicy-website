@@ -261,6 +261,19 @@
       #ppsc-conflicts-db .cdb-dot.elevated { background: var(--cdb-brass); }
       #ppsc-conflicts-db .cdb-dot.simmering { background: var(--cdb-slate); }
 
+      /* High-intensity conflicts: slow, subtle red pulse */
+      #ppsc-conflicts-db .cdb-dot.high { position: relative; }
+      #ppsc-conflicts-db .cdb-dot.high::after {
+        content: ""; position: absolute; inset: 0; border-radius: 50%;
+        background: var(--cdb-seal); opacity: 0; pointer-events: none;
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        @keyframes cdb-pulse-ring { 0% { transform: scale(1); opacity: .5; } 75%, 100% { transform: scale(2.8); opacity: 0; } }
+        @keyframes cdb-pulse-glow { 0%, 100% { box-shadow: 0 0 0 2px rgba(122,46,46,0.18); } 50% { box-shadow: 0 0 0 3px rgba(122,46,46,0.08); } }
+        #ppsc-conflicts-db .cdb-dot.high { animation: cdb-pulse-glow 3.2s ease-in-out infinite; }
+        #ppsc-conflicts-db .cdb-dot.high::after { animation: cdb-pulse-ring 3.2s cubic-bezier(0,0,.2,1) infinite; }
+      }
+
       #ppsc-conflicts-db .cdb-field-row {
         margin-bottom: 10px;
       }
