@@ -20,7 +20,8 @@ notes:
   .article-head {
     position: relative; overflow: hidden;
     background:
-      radial-gradient(700px 320px at 12% 0%, rgba(199,164,110,0.16), transparent 70%),
+      radial-gradient(560px 300px at 50% 55%, rgba(4,8,12,0.55), transparent 72%),
+      radial-gradient(800px 420px at 2% -10%, rgba(32,74,160,0.42), transparent 70%),
       radial-gradient(800px 420px at 95% 110%, rgba(122,46,46,0.38), transparent 70%),
       linear-gradient(160deg, #1D3042 0%, #16232F 55%, #10181F 100%);
     box-shadow: inset 0 -24px 40px -28px rgba(0,0,0,0.75), 0 18px 36px -24px rgba(0,0,0,0.8);
