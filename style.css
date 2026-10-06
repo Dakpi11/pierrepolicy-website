@@ -718,3 +718,15 @@ a.work-card, .cm-stat, .cm-tabs button, .paper-entry, .clause, .fact, .cm-chart 
   .cm-tabs button:hover { transform: translateY(-1px); }
   .paper-entry:hover { background-color: rgba(176,138,62,0.06); }
 }
+
+/* Chart header: latest value shown as a readout instead of floating inside the plot */
+.cm-chart figcaption { flex-direction: row !important; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.cm-cap { display: flex; flex-direction: column; }
+.cm-latest { text-align: right; line-height: 1.1; white-space: nowrap; }
+.cm-latest b { display: block; font-family: var(--display); font-size: 1.45rem; font-weight: 600; color: #2F5A88; }
+.cm-latest b.neg { color: #A8402F; }
+.cm-latest small { font-family: var(--mono); font-size: 10.5px; color: var(--slate); letter-spacing: .04em; }
+.cm-plot .bar path { fill: #9DB7D3; }
+.cm-plot .bar.neg path { fill: #E0A499; }
+.cm-plot .bar.last path { fill: #3A6EA5; }
+.cm-plot .bar.neg.last path { fill: #C0503F; }

@@ -212,7 +212,7 @@
   }
 
   function chartShell(key, title, sub, src) {
-    return '<figure class="cm-chart" data-chart="' + key + '"><figcaption><strong>' + title + '</strong><span>' + esc(sub) + '</span></figcaption>' +
+    return '<figure class="cm-chart" data-chart="' + key + '"><figcaption><div class="cm-cap"><strong>' + title + '</strong><span>' + esc(sub) + '</span></div><div class="cm-latest" data-latest-val></div></figcaption>' +
       '<div class="cm-plot"><p class="cm-loading">Loading…</p></div><p class="cm-src">Source: ' + src + ' <span data-latest></span></p></figure>';
   }
 
@@ -238,6 +238,8 @@
     if (!series || !series.length) { plot.innerHTML = '<p class="cm-loading">No recent data published.</p>'; return; }
     var last = series[series.length - 1];
     fig.querySelector('[data-latest]').textContent = '· latest: ' + last.year;
+    var lv = opts.pct ? (Math.round(last.value * 10) / 10) + '%' : fmtNum(last.value);
+    fig.querySelector('[data-latest-val]').innerHTML = '<b class="' + (opts.signed && last.value < 0 ? 'neg' : '') + '">' + esc(lv) + '</b><small>' + esc(String(last.year)) + '</small>';
     plot.innerHTML = barChart(series, opts);
     wireTips(plot, opts);
   }
@@ -285,14 +287,12 @@
       var path = neg
         ? 'M' + x + ',' + top + 'h' + bw + 'v' + (h - r) + 'q0,' + r + ' -' + r + ',' + r + 'h-' + (bw - 2 * r) + 'q-' + r + ',0 -' + r + ',-' + r + 'z'
         : 'M' + x + ',' + (top + h) + 'v-' + (h - r) + 'q0,-' + r + ' ' + r + ',-' + r + 'h' + (bw - 2 * r) + 'q' + r + ',0 ' + r + ',' + r + 'v' + (h - r) + 'z';
-      s += '<g class="bar' + (neg ? ' neg' : '') + '" data-i="' + i + '" data-tip="' + d.year + ': ' + fmt(d.value) + '">' +
+      s += '<g class="bar' + (neg ? ' neg' : '') + (i === data.length - 1 ? ' last' : '') + '" data-i="' + i + '" data-tip="' + d.year + ': ' + fmt(d.value) + '">' +
            '<rect class="hit" x="' + (padL + i * step) + '" y="' + padT + '" width="' + step + '" height="' + ph + '"/>' +
            '<path d="' + path + '"/></g>';
       if (i === 0 || i === data.length - 1 || (data.length > 8 && i % 3 === 0 && i < data.length - 2))
         s += '<text x="' + (x + bw / 2) + '" y="' + (H - 8) + '" class="tick" text-anchor="middle">' + d.year + '</text>';
     });
-    var L = data[data.length - 1], lx = padL + (data.length - 1) * step + step / 2;
-    s += '<text x="' + Math.min(lx, W - padR - 2) + '" y="' + (L.value >= 0 ? y(L.value) - 5 : y(L.value) + 12) + '" class="lab" text-anchor="end">' + fmt(L.value) + '</text>';
     return s + '</svg><div class="cm-tip" hidden></div>';
   }
   function niceTicks(min, max) {
