@@ -656,3 +656,65 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .all-link, .work-link { display: inline-block; padding: 8px 0; }
   footer .wrap { flex-direction: column; }
 }
+
+/* ===== Motion: make the site feel alive (disabled for reduced-motion users) ===== */
+.status-dot, .cm-live .dot { position: relative; flex: none; }
+.status-dot::after, .cm-live .dot::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: #5FA37A; opacity: 0;
+}
+a.work-card, .cm-stat, .cm-tabs button, .paper-entry, .clause, .fact, .cm-chart {
+  transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, border-color .25s ease, color .25s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes pp-ping { 0% { transform: scale(1); opacity: .65; } 80%, 100% { transform: scale(3.2); opacity: 0; } }
+  @keyframes pp-breathe { 0%, 100% { box-shadow: 0 0 0 3px rgba(95,163,122,0.22); } 50% { box-shadow: 0 0 0 5px rgba(95,163,122,0.10); } }
+  @keyframes pp-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes pp-fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes pp-grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes pp-pop { 0% { transform: scale(0); } 70% { transform: scale(1.35); } 100% { transform: scale(1); } }
+
+  /* Pulsing "live" indicators */
+  .status-dot, .cm-live .dot { animation: pp-breathe 2.4s ease-in-out infinite; }
+  .status-dot::after, .cm-live .dot::after { animation: pp-ping 2.4s cubic-bezier(0,0,.2,1) infinite; }
+
+  /* Page entrance */
+  .hero .wrap > * { animation: pp-rise .7s ease-out backwards; }
+  .hero .wrap > *:nth-child(2) { animation-delay: .08s; }
+  .hero .wrap > *:nth-child(3) { animation-delay: .16s; }
+  .hero .wrap > *:nth-child(4) { animation-delay: .24s; }
+  .hero .wrap > *:nth-child(n+5) { animation-delay: .32s; }
+
+  /* Crisis Monitor: each country panel animates in when selected */
+  .cm-panel > * { animation: pp-rise .55s ease-out backwards; }
+  .cm-panel > *:nth-child(2) { animation-delay: .06s; }
+  .cm-panel > *:nth-child(3) { animation-delay: .12s; }
+  .cm-panel > *:nth-child(n+4) { animation-delay: .18s; }
+  .cm-stat { animation: pp-rise .5s ease-out backwards; }
+  .cm-stat:nth-child(2) { animation-delay: .08s; }
+  .cm-stat:nth-child(3) { animation-delay: .16s; }
+  .cm-stat:nth-child(4) { animation-delay: .24s; }
+  .cm-stat:nth-child(5) { animation-delay: .32s; }
+  .cm-history li { animation: pp-rise .45s ease-out backwards; }
+  .cm-history li:nth-child(1) { animation-delay: .20s; }
+  .cm-history li:nth-child(2) { animation-delay: .32s; }
+  .cm-history li:nth-child(3) { animation-delay: .44s; }
+  .cm-history li:nth-child(4) { animation-delay: .56s; }
+  .cm-history li:nth-child(n+5) { animation-delay: .68s; }
+  .cm-history li:before { animation: pp-pop .4s ease-out backwards; animation-delay: inherit; }
+
+  /* Live charts: bars grow up from the baseline as data arrives */
+  .cm-plot .bar path { transform-box: fill-box; transform-origin: 50% 100%; animation: pp-grow .7s cubic-bezier(.2,.8,.2,1) backwards; }
+  .cm-plot .bar.neg path { transform-origin: 50% 0; }
+  .cm-plot .bar:nth-of-type(3n+2) path { animation-delay: .05s; }
+  .cm-plot .bar:nth-of-type(3n) path { animation-delay: .1s; }
+  .cm-plot .lab { animation: pp-fade .5s ease-out .6s both; }
+  .cm-loading { animation: pp-breathe-text 1.4s ease-in-out infinite; }
+  @keyframes pp-breathe-text { 0%, 100% { opacity: .45; } 50% { opacity: .9; } }
+
+  /* Hover feedback */
+  a.work-card:hover, .cm-stat:hover, .cm-chart:hover { transform: translateY(-3px); box-shadow: 0 10px 24px -14px rgba(0,0,0,0.45); }
+  .cm-tabs button:hover { transform: translateY(-1px); }
+  .paper-entry:hover { background-color: rgba(176,138,62,0.06); }
+}
