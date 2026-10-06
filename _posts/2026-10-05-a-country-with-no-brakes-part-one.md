@@ -20,7 +20,6 @@ notes:
   .article-head {
     position: relative; overflow: hidden;
     background:
-      radial-gradient(620px 320px at 50% 50%, rgba(255,255,255,0.08), transparent 70%),
       radial-gradient(800px 420px at 2% -10%, rgba(32,74,160,0.42), transparent 70%),
       radial-gradient(800px 420px at 95% 110%, rgba(122,46,46,0.38), transparent 70%),
       linear-gradient(160deg, #1D3042 0%, #16232F 55%, #10181F 100%);
@@ -30,6 +29,11 @@ notes:
   .article-head::after {
     content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
     background: linear-gradient(90deg, transparent 0%, #B08D57 30%, #7A2E2E 75%, transparent 100%);
+  }
+  .article-head::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.10) 20%, rgba(255,255,255,0.32) 50%, rgba(255,255,255,0.10) 80%, transparent 100%);
+    box-shadow: 0 1px 14px rgba(255,255,255,0.10);
   }
   .article-head h1 { text-shadow: 0 2px 22px rgba(0,0,0,0.45); }
   .article-text > blockquote:first-of-type {
