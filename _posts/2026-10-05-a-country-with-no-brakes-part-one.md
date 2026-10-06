@@ -15,6 +15,36 @@ notes:
   - "Human Rights Watch, \"Haiti: Wave of Violence Deepens Crisis,\" July 22, 2022, https://www.hrw.org/news/2022/07/22/haiti-wave-violence-deepens-crisis."
   - "\"Trapped Behind Bars: Reforming Haiti's Broken Detention System,\" UN News, November 11, 2025, https://news.un.org/en/story/2025/11/1166325."
 ---
+<style>
+  /* Article-specific depth: navy and brass with a subtle seal-red accent */
+  .article-head {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(700px 320px at 12% 0%, rgba(199,164,110,0.16), transparent 70%),
+      radial-gradient(800px 420px at 95% 110%, rgba(122,46,46,0.38), transparent 70%),
+      linear-gradient(160deg, #1D3042 0%, #16232F 55%, #10181F 100%);
+    box-shadow: inset 0 -24px 40px -28px rgba(0,0,0,0.75), 0 18px 36px -24px rgba(0,0,0,0.8);
+    border-bottom: none;
+  }
+  .article-head::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #B08D57 30%, #7A2E2E 75%, transparent 100%);
+  }
+  .article-head h1 { text-shadow: 0 2px 22px rgba(0,0,0,0.45); }
+  .article-text > blockquote:first-of-type {
+    margin: 0 0 2em; padding: 18px 22px; border-radius: 4px;
+    border-left: 3px solid; border-image: linear-gradient(180deg, #C7A46E, #7A2E2E) 1;
+    background: linear-gradient(135deg, rgba(31,49,64,0.95), rgba(22,35,47,0.95) 60%, rgba(122,46,46,0.22));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 16px 30px -18px rgba(0,0,0,0.8);
+  }
+  .article-text h2 { position: relative; padding-bottom: 10px; }
+  .article-text h2::after {
+    content: ""; position: absolute; left: 0; bottom: 0; width: 72px; height: 2px;
+    background: linear-gradient(90deg, #C7A46E, #7A2E2E);
+    box-shadow: 0 2px 8px rgba(122,46,46,0.45);
+  }
+</style>
+
 > **About this series.** This is the first part of a series on the institutional failures behind Haiti's collapse. Part One covers the economy, the police, and the courts. Later parts will examine the collapse of electoral politics and the role of international intervention.
 
 ## How it began
