@@ -14,6 +14,48 @@ notes:
   - "Reuters, \"US State Department Closing Office Aimed at Countering Foreign Disinformation,\" via U.S. News & World Report, April 16, 2025, https://www.usnews.com/news/world/articles/2025-04-16/us-state-department-closing-office-aimed-at-countering-foreign-disinformation."
   - "The Hill, \"State Moves Forward with Foreign Service Officer Layoffs in Blow to Civil Service,\" May 5, 2026, https://thehill.com/homenews/administration/5864900-foreign-service-officers-fight-layoffs/."
 ---
+<style>
+  /* Article-specific depth: U.S. diplomacy (seal blue and gold) palette */
+  .article-head {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(800px 420px at 2% -10%, rgba(32,64,130,0.42), transparent 70%),
+      radial-gradient(800px 420px at 95% 110%, rgba(176,141,87,0.30), transparent 70%),
+      linear-gradient(160deg, #1D3042 0%, #16232F 55%, #10181F 100%);
+    box-shadow: inset 0 -24px 40px -28px rgba(0,0,0,0.75), 0 18px 36px -24px rgba(0,0,0,0.8);
+    border-bottom: none;
+  }
+  .article-head::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #5B7DB0 30%, #C7A46E 75%, transparent 100%);
+  }
+  .article-head::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.10) 20%, rgba(255,255,255,0.32) 50%, rgba(255,255,255,0.10) 80%, transparent 100%);
+    box-shadow: 0 1px 14px rgba(255,255,255,0.10);
+  }
+  /* Laser-etched text */
+  .article-head h1 {
+    color: #E9E2D0; letter-spacing: 0.005em;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.85), 0 1px 0 rgba(255,255,255,0.14), 0 0 1px rgba(233,226,208,0.35);
+  }
+  .article-head .dek { color: rgba(233,226,208,0.82); text-shadow: 0 -1px 0 rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.08); }
+  .article-head .meta, .article-head .byline { text-shadow: 0 -1px 0 rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.07); }
+  .article-text h2 { color: #E9E2D0; text-shadow: 0 -1px 0 rgba(0,0,0,0.85), 0 1px 0 rgba(255,255,255,0.12); }
+  .article-text > blockquote:first-of-type {
+    margin: 0 0 2em; padding: 18px 22px; border-radius: 4px;
+    border-left: 3px solid; border-image: linear-gradient(180deg, #5B7DB0, #C7A46E) 1;
+    background: linear-gradient(135deg, rgba(31,49,64,0.95), rgba(22,35,47,0.95) 60%, rgba(176,141,87,0.16));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 16px 30px -18px rgba(0,0,0,0.8);
+  }
+  .article-text h2 { position: relative; padding-bottom: 10px; }
+  .article-text h2::after {
+    content: ""; position: absolute; left: 0; bottom: 0; width: 72px; height: 2px;
+    background: linear-gradient(90deg, #5B7DB0, #C7A46E);
+    box-shadow: 0 2px 8px rgba(199,164,110,0.40);
+  }
+</style>
+
 > **About this paper.** This decision memo was originally written in early 2025, addressed to the Secretary of State at the start of the new administration. The analysis and recommendations are presented as written. **Since then:** in July 2025 the State Department sent layoff notices to more than 1,300 employees (1,107 civil servants and 246 Foreign Service officers) as part of a reorganization affecting more than 300 bureaus and offices.[1] In April 2025, the Secretary of State closed the office that tracked foreign disinformation, the successor to the Global Engagement Center, which had shut down in December 2024.[2] On May 5, 2026, the Department formally terminated more than 200 of the affected Foreign Service officers.[3] The workforce and capacity concerns raised here have only grown more pressing.
 
 **Issue for decision:** Approve steps to strengthen the State Department's capacity to meet growing global challenges and sustain U.S. leadership in diplomacy.

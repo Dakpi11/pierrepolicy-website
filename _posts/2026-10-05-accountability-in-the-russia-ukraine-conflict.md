@@ -18,6 +18,48 @@ notes:
   - "International Center for Transitional Justice, *Truth Seeking: Elements of Creating an Effective Truth Commission*, chapter 2 (2013), https://www.ictj.org/sites/default/files/ICTJ-Book-Truth-Seeking-Chapter2-2013-English.pdf."
   - "United Nations Ukraine, \"UN Commission Concludes That Deportation and Forcible Transfer of Ukrainian Children by Russian Authorities, as Well as Enforced Disappearances, Amount to Crimes Against Humanity,\" March 12, 2026, https://ukraine.un.org/en/311741-un-commission-concludes-deportation-and-forcible-transfer-ukrainian-children-russian."
 ---
+<style>
+  /* Article-specific depth: Ukraine (blue and yellow) palette */
+  .article-head {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(800px 420px at 2% -10%, rgba(0,87,183,0.42), transparent 70%),
+      radial-gradient(800px 420px at 95% 110%, rgba(214,170,40,0.26), transparent 70%),
+      linear-gradient(160deg, #1D3042 0%, #16232F 55%, #10181F 100%);
+    box-shadow: inset 0 -24px 40px -28px rgba(0,0,0,0.75), 0 18px 36px -24px rgba(0,0,0,0.8);
+    border-bottom: none;
+  }
+  .article-head::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #4F7FC4 30%, #D6B04A 75%, transparent 100%);
+  }
+  .article-head::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.10) 20%, rgba(255,255,255,0.32) 50%, rgba(255,255,255,0.10) 80%, transparent 100%);
+    box-shadow: 0 1px 14px rgba(255,255,255,0.10);
+  }
+  /* Laser-etched text */
+  .article-head h1 {
+    color: #E9E2D0; letter-spacing: 0.005em;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.85), 0 1px 0 rgba(255,255,255,0.14), 0 0 1px rgba(233,226,208,0.35);
+  }
+  .article-head .dek { color: rgba(233,226,208,0.82); text-shadow: 0 -1px 0 rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.08); }
+  .article-head .meta, .article-head .byline { text-shadow: 0 -1px 0 rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.07); }
+  .article-text h2 { color: #E9E2D0; text-shadow: 0 -1px 0 rgba(0,0,0,0.85), 0 1px 0 rgba(255,255,255,0.12); }
+  .article-text > blockquote:first-of-type {
+    margin: 0 0 2em; padding: 18px 22px; border-radius: 4px;
+    border-left: 3px solid; border-image: linear-gradient(180deg, #4F7FC4, #D6B04A) 1;
+    background: linear-gradient(135deg, rgba(31,49,64,0.95), rgba(22,35,47,0.95) 60%, rgba(214,170,40,0.14));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 16px 30px -18px rgba(0,0,0,0.8);
+  }
+  .article-text h2 { position: relative; padding-bottom: 10px; }
+  .article-text h2::after {
+    content: ""; position: absolute; left: 0; bottom: 0; width: 72px; height: 2px;
+    background: linear-gradient(90deg, #4F7FC4, #D6B04A);
+    box-shadow: 0 2px 8px rgba(214,176,74,0.40);
+  }
+</style>
+
 > **About this paper.** This brief was originally written in March 2025. The argument and recommendations are presented as written. **Since then:** in March 2026, the UN's Independent International Commission of Inquiry on Ukraine concluded that Russia's deportation and forcible transfer of Ukrainian children amount to crimes against humanity. It verified more than 1,200 cases and found that 80 percent of those children had still not been returned.[7] That finding shows the kind of fact-finding this brief argues for, and how much enforcement still lags behind it.
 
 To hold Russia accountable for the unlawful transfer of children from occupied areas of Ukraine, the international community should use the International Criminal Court (ICC) together with nonjudicial approaches, such as a truth commission, that make up for the Court's limitations. The ICC has the legal authority to prosecute individuals accused of war crimes, crimes against humanity, and genocide. In this war, however, its reach is restricted: Russia never ratified the Rome Statute and withdrew its signature in 2016. The Court's arrest warrants show its importance but also its practical limits, because they depend on other states and the UN Security Council for enforcement. A truth commission, backed by political organizations such as the EU, should work alongside the Court to document atrocities and keep diplomatic pressure on Russia, helping secure accountability even without an enforceable judicial mandate.

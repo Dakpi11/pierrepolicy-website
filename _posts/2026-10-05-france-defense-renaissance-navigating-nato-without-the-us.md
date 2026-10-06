@@ -33,6 +33,48 @@ notes:
   - "Breaking Defense, \"France to Increase Defense Spending by $42 Billion, Mulls New Tank Effort,\" April 2026, https://breakingdefense.com/2026/04/france-to-increase-defense-spending-by-42-billion-mulls-new-tank-effort/."
   - "Al Jazeera, \"Could US Pull One-Third of Troops from Europe? What That Would Mean,\" September 19, 2026, https://www.aljazeera.com/news/2026/9/19/could-us-pull-one-third-of-troops-from-europe-what-that-would-mean."
 ---
+<style>
+  /* Article-specific depth: France (blue and red) palette */
+  .article-head {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(800px 420px at 2% -10%, rgba(0,85,164,0.42), transparent 70%),
+      radial-gradient(800px 420px at 95% 110%, rgba(190,55,55,0.34), transparent 70%),
+      linear-gradient(160deg, #1D3042 0%, #16232F 55%, #10181F 100%);
+    box-shadow: inset 0 -24px 40px -28px rgba(0,0,0,0.75), 0 18px 36px -24px rgba(0,0,0,0.8);
+    border-bottom: none;
+  }
+  .article-head::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #6E8FC4 30%, #B5473F 75%, transparent 100%);
+  }
+  .article-head::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.10) 20%, rgba(255,255,255,0.32) 50%, rgba(255,255,255,0.10) 80%, transparent 100%);
+    box-shadow: 0 1px 14px rgba(255,255,255,0.10);
+  }
+  /* Laser-etched text */
+  .article-head h1 {
+    color: #E9E2D0; letter-spacing: 0.005em;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.85), 0 1px 0 rgba(255,255,255,0.14), 0 0 1px rgba(233,226,208,0.35);
+  }
+  .article-head .dek { color: rgba(233,226,208,0.82); text-shadow: 0 -1px 0 rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.08); }
+  .article-head .meta, .article-head .byline { text-shadow: 0 -1px 0 rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.07); }
+  .article-text h2 { color: #E9E2D0; text-shadow: 0 -1px 0 rgba(0,0,0,0.85), 0 1px 0 rgba(255,255,255,0.12); }
+  .article-text > blockquote:first-of-type {
+    margin: 0 0 2em; padding: 18px 22px; border-radius: 4px;
+    border-left: 3px solid; border-image: linear-gradient(180deg, #6E8FC4, #B5473F) 1;
+    background: linear-gradient(135deg, rgba(31,49,64,0.95), rgba(22,35,47,0.95) 60%, rgba(0,85,164,0.20));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 16px 30px -18px rgba(0,0,0,0.8);
+  }
+  .article-text h2 { position: relative; padding-bottom: 10px; }
+  .article-text h2::after {
+    content: ""; position: absolute; left: 0; bottom: 0; width: 72px; height: 2px;
+    background: linear-gradient(90deg, #6E8FC4, #B5473F);
+    box-shadow: 0 2px 8px rgba(181,71,63,0.45);
+  }
+</style>
+
 > **About this paper.** This analysis was originally written in spring 2025 as a policy memo to the President of France. The argument and recommendations are presented as written. **Since then:** at the June 2025 Hague summit, NATO allies committed to spending 5% of GDP on defense by 2035, with at least 3.5% on core defense.[20] In April 2026, France announced a revised military programming law adding €36 billion over four years and reaching roughly 2.6% of GDP by 2030.[21] As of September 2026, the Pentagon is weighing withdrawing up to 40,000 of the roughly 68,000 U.S. troops stationed in Europe.[22] Together, these developments make the question this memo asks more urgent, not less.
 
 Under President Donald Trump's "America First" foreign policy, European nations are reevaluating their reliance on the United States for security. Without U.S. support, NATO would be more exposed to external threats: Russian expansionism following the invasion of Ukraine, growing strategic competition from China, cyberattacks on critical infrastructure, and disinformation campaigns made easier by artificial intelligence. A U.S. withdrawal from NATO would weaken the collective defense network that has ensured European stability for decades, leaving France more exposed to both traditional military threats and non-traditional ones such as cyberattacks, disinformation, and strategic coercion by rival powers.
