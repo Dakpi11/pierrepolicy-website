@@ -20,7 +20,7 @@ notes:
   .article-head {
     position: relative; overflow: hidden;
     background:
-      radial-gradient(560px 300px at 50% 55%, rgba(4,8,12,0.55), transparent 72%),
+      radial-gradient(620px 320px at 50% 50%, rgba(255,255,255,0.08), transparent 70%),
       radial-gradient(800px 420px at 2% -10%, rgba(32,74,160,0.42), transparent 70%),
       radial-gradient(800px 420px at 95% 110%, rgba(122,46,46,0.38), transparent 70%),
       linear-gradient(160deg, #1D3042 0%, #16232F 55%, #10181F 100%);
