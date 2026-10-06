@@ -35,7 +35,14 @@ notes:
     background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.10) 20%, rgba(255,255,255,0.32) 50%, rgba(255,255,255,0.10) 80%, transparent 100%);
     box-shadow: 0 1px 14px rgba(255,255,255,0.10);
   }
-  .article-head h1 { text-shadow: 0 2px 22px rgba(0,0,0,0.45); }
+  /* Laser-etched text: crisp warm ink with a dark upper edge and a faint lit lower edge */
+  .article-head h1 {
+    color: #E9E2D0; letter-spacing: 0.005em;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.85), 0 1px 0 rgba(255,255,255,0.14), 0 0 1px rgba(233,226,208,0.35);
+  }
+  .article-head .dek { color: rgba(233,226,208,0.82); text-shadow: 0 -1px 0 rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.08); }
+  .article-head .meta, .article-head .byline { text-shadow: 0 -1px 0 rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.07); }
+  .article-text h2 { color: #E9E2D0; text-shadow: 0 -1px 0 rgba(0,0,0,0.85), 0 1px 0 rgba(255,255,255,0.12); }
   .article-text > blockquote:first-of-type {
     margin: 0 0 2em; padding: 18px 22px; border-radius: 4px;
     border-left: 3px solid; border-image: linear-gradient(180deg, #C7A46E, #7A2E2E) 1;
