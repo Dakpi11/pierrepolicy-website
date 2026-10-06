@@ -817,3 +817,16 @@ footer { background: linear-gradient(180deg, transparent, rgba(0,0,0,0.25)); }
 .dossier:has(+ .contributions) { box-shadow: inset 0 14px 24px -18px rgba(0,0,0,0.35); }
 .dossier.contributions { box-shadow: inset 0 -14px 24px -18px rgba(0,0,0,0.25); background: linear-gradient(180deg, var(--parchment) 0%, #E3DAC3 100%) !important; }
 /* ===== END DEPTH TEST ===== */
+
+/* ===== Homepage: CTA note, registration hierarchy, Why PP&SC, selected experience ===== */
+.firm-band .cta-note { font-size: 0.82rem; opacity: 0.75; max-width: 30ch; margin: 2px 0 0; line-height: 1.45; }
+.cred-sub { margin: 16px 0 0; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: rgba(243,239,228,0.6); }
+.why { border-bottom: 1px solid var(--rule); }
+.why .fact-grid { margin-top: 8px; }
+.experience { border-bottom: 1px solid var(--rule); }
+.experience .sub { font-family: var(--mono); font-size: 12px; opacity: 0.65; margin: -4px 0 18px; }
+.experience .clause { grid-template-columns: 76px 1fr; }
+.experience .clause .num { font-size: 12px; white-space: nowrap; }
+.experience .clause p a { color: var(--brass-bright); }
+@media (max-width: 640px) { .experience .clause { grid-template-columns: 1fr; gap: 6px; } .firm-band .cta-note { max-width: none; } }
+.experience h2 { margin-bottom: 10px; }
