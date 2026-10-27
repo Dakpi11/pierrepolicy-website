@@ -101,7 +101,7 @@
     return String(Math.round(n));
   }
 
-  if (COUNTRIES.length < 2) tabsEl.hidden = true;
+  if (COUNTRIES.length < 2) tabsEl.style.display = 'none';
   COUNTRIES.forEach(function (c) {
     var b = document.createElement('button');
     b.type = 'button'; b.role = 'tab'; b.textContent = c.name; b.dataset.id = c.id;
