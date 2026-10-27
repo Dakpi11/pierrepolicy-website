@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crisis Monitor &middot; Pierre Policy &amp; Strategy Consulting</title>
-  <meta name="description" content="PP&amp;SC Crisis Monitor: how five of the world's gravest humanitarian crises developed, with headline figures and live displacement and economic data for Sudan, Gaza, Haiti, the DRC, and Myanmar.">
+  <meta name="description" content="PP&amp;SC Crisis Monitor: how Haiti's crisis developed, with headline figures and live displacement and economic data.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#16232F">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Pierre Policy &amp; Strategy Consulting">
   <meta property="og:title" content="Crisis Monitor &middot; Pierre Policy &amp; Strategy Consulting">
-  <meta property="og:description" content="PP&amp;SC Crisis Monitor: how five of the world's gravest humanitarian crises developed, with headline figures and live displacement and economic data for Sudan, Gaza, Haiti, the DRC, and Myanmar.">
+  <meta property="og:description" content="PP&amp;SC Crisis Monitor: how Haiti's crisis developed, with headline figures and live displacement and economic data.">
   <meta property="og:url" content="https://pierrepolicy.com/crisis-monitor.html">
   <meta property="og:image" content="https://pierrepolicy.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -37,8 +37,8 @@
   <header class="hero hero-compact">
     <div class="wrap">
       <p class="eyebrow">PP&amp;SC Crisis Monitor</p>
-      <h1>Five crises, one place.</h1>
-      <p class="lede">How five of the world's gravest humanitarian emergencies developed, where they stand now, and what the data shows. Headline figures come from UN and other primary sources; the charts pull live from the World Bank and UNHCR each time the page loads.</p>
+      <h1>Haiti, in one place.</h1>
+      <p class="lede">How Haiti's crisis developed, where it stands now, and what the data shows. Headline figures come from UN and other primary sources; the charts pull live from the World Bank and UNHCR each time the page loads.</p>
     </div>
   </header>
 
@@ -68,46 +68,6 @@
   // ---------------------------------------------------------------
   var COUNTRIES = [
     {
-      id: 'sudan', name: 'Sudan', iso: 'SDN', region: 'East Africa', since: 'War since April 2023',
-      summary: 'The world’s largest displacement crisis. A war between the Sudanese Armed Forces and the Rapid Support Forces has uprooted millions, brought famine to parts of Darfur and Kordofan, and collapsed the economy.',
-      stats: [
-        { value: '9M+', label: 'People internally displaced', asOf: 'Aug 2026', src: 'UN OCHA via UN News', url: 'https://news.un.org/en/story/2026/08/1168109' },
-        { value: '4.3M', label: 'Sudanese refugees in the region', asOf: 'Feb 2026', src: 'UNHCR', url: 'https://news.un.org/en/story/2026/02/1166979' },
-        { value: '30M+', label: 'People in need of aid', asOf: 'Aug 2026', src: 'UN OCHA', url: 'https://news.un.org/en/story/2026/08/1168109' },
-        { value: '19.5M', label: 'Facing acute food insecurity (IPC 3+), with famine risk in 14 areas', asOf: 'Feb–May 2026', src: 'IPC', url: 'https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1163315/' },
-        { value: '150%', label: 'Inflation in 2025', asOf: '2025', src: 'African Development Bank', url: 'https://www.afdb.org/en/countries/east-africa/sudan/sudan-economic-outlook' }
-      ],
-      history: [
-        ["Apr 2023", "Fighting erupts in Khartoum between the Sudanese Armed Forces (SAF) and the paramilitary Rapid Support Forces (RSF), two former partners in the 2021 coup."],
-        ["Mar 2025", "The army retakes the Republican Palace and most of Khartoum, consolidating its hold on the east and center of the country."],
-        ["Oct 2025", "The RSF captures El Fasher, the army’s last stronghold in Darfur, after an 18-month siege marked by mass atrocities."],
-        ["Jul 2026", "The army reopens the Khartoum–El Obeid corridor while the RSF shifts the war to Kordofan and Blue Nile, striking El Obeid and Ed Damazin."]
-      ],
-      now: "Sudan is effectively split between an army-held east and an RSF-held west, with heavy fighting in Kordofan and Blue Nile and no ceasefire in force. International mediation continues, but famine conditions and funding shortfalls are deepening.",
-      caveat: 'Death tolls are highly contested: ACLED counts about 56,000 directly reported violent deaths, while other estimates exceed 150,000. IDP totals are falling partly because of returns.',
-      unhcr: true
-    },
-    {
-      id: 'gaza', name: 'Gaza', iso: 'PSE', region: 'Middle East', since: 'War since October 2023; ceasefire since October 2025',
-      summary: 'More than two years of war left almost the entire population displaced and dependent on aid. A ceasefire has formally held since October 2025, but strikes, shelter shortages and aid restrictions continue.',
-      stats: [
-        { value: '1.98M', label: 'People needing shelter assistance (94% of the population)', asOf: 'Aug 2026', src: 'UN OCHA', url: 'https://www.ochaopt.org/content/humanitarian-situation-report-28-august-2026' },
-        { value: '1.4M', label: 'Projected to face acute food insecurity (IPC 3+), 67% of the population', asOf: 'Jul–Dec 2026', src: 'IPC', url: 'https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165303/?iso3=PSE' },
-        { value: '73,431', label: 'Killed since 7 Oct 2023, per the Gaza Ministry of Health', asOf: '25 Aug 2026', src: 'Gaza MoH via WAFA', url: 'https://english.wafa.ps/Pages/Details/174089' },
-        { value: '78%', label: 'Unemployment in Gaza in 2025 (22% before Oct 2023)', asOf: '2025', src: 'World Bank', url: 'https://thedocs.worldbank.org/en/doc/caf69bb9db6d729c6b35254c5815df9a-0280012026/original/Palestinian-Economic-Monitor-5-19-26web.pdf' },
-        { value: '$71.5B', label: 'Estimated reconstruction needs', asOf: 'May 2026', src: 'World Bank', url: 'https://thedocs.worldbank.org/en/doc/caf69bb9db6d729c6b35254c5815df9a-0280012026/original/Palestinian-Economic-Monitor-5-19-26web.pdf' }
-      ],
-      history: [
-        ["Oct 2023", "Hamas-led attacks on southern Israel kill about 1,200 people and take some 250 hostages; Israel launches a military campaign in Gaza."],
-        ["Aug 2025", "The UN-backed IPC confirms famine in Gaza City, the first famine determination in the Middle East."],
-        ["Oct 2025", "A U.S.-brokered ceasefire takes effect; the last 20 living hostages are released on October 13 in exchange for Palestinian prisoners."],
-        ["Nov 2025", "UN Security Council Resolution 2803 endorses a Board of Peace and an International Stabilization Force to oversee Gaza’s transition."]
-      ],
-      now: "The ceasefire has formally held for a year, but strikes, shelter shortages, and aid restrictions continue, and nearly the whole population still needs assistance. The stabilization force remains small, and disarmament and reconstruction have barely begun.",
-      caveat: 'Casualty totals come from the Gaza Ministry of Health and cannot be independently verified. Economic charts cover the West Bank and Gaza combined. UNHCR data is not shown because Palestine refugees fall under UNRWA’s mandate.',
-      unhcr: false
-    },
-    {
       id: 'haiti', name: 'Haiti', iso: 'HTI', region: 'Caribbean', since: 'Escalating gang crisis since 2021',
       summary: 'Armed gangs control most of Port-au-Prince and are spreading into the countryside. Displacement is at a record high, half the population faces acute hunger, and the economy has shrunk for seven straight years.',
       stats: [
@@ -127,46 +87,6 @@
       now: "Gangs still control most of Port-au-Prince and are expanding into the provinces, and displacement is at a record high. Elections are tentatively set for December 2026, but the electoral council says they depend on security improving.",
       caveat: 'Access limits in gang-held areas mean casualty and displacement figures are minimum estimates.',
       unhcr: true
-    },
-    {
-      id: 'drc', name: 'DR Congo', iso: 'COD', region: 'Central Africa', since: 'M23 offensive since 2021; Goma fell January 2025',
-      summary: 'Decades of conflict in the east have produced one of the world’s largest displacement and hunger crises, now compounded by an Ebola outbreak. Peace deals signed in 2025 have not stopped the fighting.',
-      stats: [
-        { value: '5.6M+', label: 'People internally displaced', asOf: 'Apr 2026', src: 'OCHA / IOM', url: 'https://caritasdev.cd/au-13-avril-2026-la-rdc-compte-plus-de-561-millions-de-personnes-deplacees-internes-ocha-oim/' },
-        { value: '1.24M', label: 'Congolese refugees and asylum-seekers in the region', asOf: 'Apr 2026', src: 'UNHCR', url: 'https://data.unhcr.org/en/situations/drc' },
-        { value: '26.5M', label: 'Facing acute food insecurity (IPC 3+)', asOf: 'Jan–Jun 2026', src: 'IPC', url: 'https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1163307/' },
-        { value: '14.9M', label: 'People in need (prioritised 2026 plan)', asOf: '2026 plan', src: 'UN OCHA via UNICEF', url: 'https://www.unicef.org/media/179311/file/2026-HAC-DRC.pdf' },
-        { value: '6,757', label: 'Confirmed Ebola cases in DRC (Bundibugyo strain)', asOf: '7 Sep 2026', src: 'WHO', url: 'https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON617' }
-      ],
-      history: [
-        ["Jan 2025", "Rwanda-backed M23 rebels capture Goma, the largest city in eastern Congo, followed by Bukavu in February."],
-        ["Nov 2025", "The government and M23 sign a framework agreement in Doha setting out eight protocols for peace."],
-        ["Dec 2025", "The DRC and Rwanda sign the Washington Accords; M23 briefly seizes Uvira, then withdraws under U.S. pressure."],
-        ["May 2026", "An Ebola outbreak caused by the Bundibugyo strain is declared in Ituri Province and spreads into Uganda."]
-      ],
-      now: "Fighting between the army and M23 continues in North and South Kivu despite both peace tracks, and only two of the eight Doha protocols have been completed. The Ebola outbreak, now one of the largest on record, is straining an already overwhelmed humanitarian response.",
-      caveat: 'The displacement figure is from April 2026 and reported via a secondary source. The 2026 people-in-need figure uses a narrower, prioritised scope and is not comparable with 2025’s 21.2M.',
-      unhcr: true
-    },
-    {
-      id: 'myanmar', name: 'Myanmar', iso: 'MMR', region: 'Southeast Asia', since: 'Civil war since the February 2021 coup',
-      summary: 'Five years after the military coup, civil war, a devastating 2025 earthquake and an economic shock have displaced millions. A military-backed government took office in 2026 after a disputed election.',
-      stats: [
-        { value: '~3.8M', label: 'People displaced inside Myanmar', asOf: 'Jul 2026', src: 'UN OCHA', url: 'https://myanmar.un.org/sites/default/files/2026-07/OCHA%20Myanmar%20-%20Humanitarian%20Update%20No.%2052_final.pdf' },
-        { value: '16.2M', label: 'People in need of aid', asOf: '2026 plan', src: 'UN OCHA', url: 'https://www.unocha.org/publications/report/myanmar/myanmar-humanitarian-needs-and-response-plan-2026' },
-        { value: '1.2M', label: 'Rohingya refugees in Bangladesh', asOf: 'Jun 2026', src: 'UNHCR via UN News', url: 'https://news.un.org/en/story/2026/06/1167623' },
-        { value: '12.4M', label: 'People facing acute hunger, nearly a quarter of the population', asOf: 'Mar 2026', src: 'WFP', url: 'https://www.wfp.org/news/one-year-after-myanmar-earthquake-new-global-shocks-threaten-push-survivors-back-hunger' },
-        { value: '24.6%', label: 'Inflation, year on year (April 2026)', asOf: 'Apr 2026', src: 'World Bank', url: 'https://www.worldbank.org/en/news/press-release/2026/06/16/myanmar-s-economy-shows-tentative-stabilization-but-fuel-shock-intensifies-pressures' }
-      ],
-      history: [
-        ["Feb 2021", "The military seizes power and detains Aung San Suu Kyi; mass protests turn into armed resistance."],
-        ["Oct 2023", "Ethnic armed groups launch Operation 1027, the largest coordinated offensive against the junta, seizing towns along the Chinese border."],
-        ["Mar 2025", "A 7.7-magnitude earthquake strikes central Myanmar, killing thousands and compounding the humanitarian crisis."],
-        ["Apr 2026", "After a disputed election, a military-backed parliament elects coup leader Min Aung Hlaing as president."]
-      ],
-      now: "Civil war continues across much of the country, and resistance groups have formed a new unified front against the military-backed government. The new administration is seeking international legitimacy while humanitarian needs and inflation remain severe.",
-      caveat: 'Access limits make all figures estimates. Some economic data comes partly from official sources in Myanmar.',
-      unhcr: true
     }
   ];
 
@@ -181,6 +101,7 @@
     return String(Math.round(n));
   }
 
+  if (COUNTRIES.length < 2) tabsEl.hidden = true;
   COUNTRIES.forEach(function (c) {
     var b = document.createElement('button');
     b.type = 'button'; b.role = 'tab'; b.textContent = c.name; b.dataset.id = c.id;

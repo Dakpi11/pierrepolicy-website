@@ -18,6 +18,8 @@
   <style>
     .dossier.contributions { padding-top: 8px; }
     .dossier.contributions h2 { font-size: 1.35rem; }
+    .dossier .group-title { font-size: 1.1rem; margin: 28px 0 4px; }
+    .dossier .group-title:first-child { margin-top: 8px; }
   </style>
 </head>
 <body>
@@ -81,13 +83,20 @@
   var tags = ['All'].concat(A.map(function (a) { return a.tag; }).filter(function (t, i, arr) { return arr.indexOf(t) === i; }));
   function render(tag) {
     [].forEach.call(fl.children, function (b) { b.setAttribute('aria-pressed', b.textContent === tag); });
-    list.innerHTML = A.filter(function (a) { return tag === 'All' || a.tag === tag; }).map(function (a) {
+    var shown = A.filter(function (a) { return tag === 'All' || a.tag === tag; });
+    function entry(a) {
       var d = new Date(a.date + 'T12:00:00');
       return '<div class="paper-entry"><span class="date">' + d.getFullYear() + ' &middot; ' + String(d.getMonth() + 1).padStart(2, '0') + '</span>' +
         '<div><p class="tagline"><span class="tag">' + E(a.tag) + '</span>' + F(a.date) + ' &middot; ' + a.minutes + ' min</p>' +
         '<h3><a href="' + E(a.url) + '">' + E(a.title) + '</a></h3><p>' + E(a.summary) + '</p></div>' +
         (a.pdf ? '<a class="dl" href="' + E(a.pdf) + '">PDF &darr;</a>' : '<a class="dl" href="' + E(a.url) + '">Read</a>') + '</div>';
-    }).join('');
+    }
+    var series = shown.filter(function (a) { return a.series; });
+    var memos = shown.filter(function (a) { return !a.series; });
+    var html = '';
+    if (series.length) html += '<h2 class="group-title">Featured series</h2>' + series.map(entry).join('');
+    if (memos.length) html += '<h2 class="group-title">Policy memos</h2>' + memos.map(entry).join('');
+    list.innerHTML = html;
   }
   tags.forEach(function (t) {
     var b = document.createElement('button'); b.type = 'button'; b.textContent = t;

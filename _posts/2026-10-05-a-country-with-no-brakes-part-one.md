@@ -3,6 +3,7 @@ status: Published
 title: "A Country with No Brakes, Part One: How Haiti Lost Every Checkpoint on Its Slide into Collapse"
 date: 2026-10-05
 tag: Conflict
+series: "A Country with No Brakes"
 summary: "Haiti's collapse did not happen overnight. It was the product of compounding failures in the institutions meant to keep a nation accountable. Part One of this series examines two of them: an economy that has shrunk for seven straight years, leaving the police outmanned and outgunned, and a justice system where most prisoners have never seen a judge."
 key_points:
   - "Haiti's economy contracted for a seventh consecutive year in 2025, and government revenue fell to just 4.8 percent of GDP, leaving little to fund the police, courts, and public services."

@@ -7,6 +7,7 @@ window.PPSC_ARTICLES = [{% assign live = site.posts | where_exp: "p", "p.status 
     title: {{ post.title | jsonify }},
     date: {{ post.date | date: "%Y-%m-%d" | jsonify }},
     tag: {{ post.tag | default: "Analysis" | jsonify }},
+    series: {{ post.series | default: "" | jsonify }},
     summary: {{ post.summary | strip_html | strip_newlines | jsonify }},
     url: {{ post.url | remove_first: "/" | jsonify }},
     pdf: {% if post.pdf and post.pdf != "" %}{{ post.pdf | relative_url | jsonify }}{% else %}""{% endif %},

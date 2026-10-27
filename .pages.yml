@@ -51,6 +51,9 @@ content:
               label: Security
             - name: Policy
               label: Policy
+      - name: series
+        label: Series name (optional; articles in a series are featured at the top of the Research page)
+        type: string
       - name: summary
         label: Summary (2-3 sentences for the homepage and Research page)
         type: text
